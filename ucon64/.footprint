@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/ucon64
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/ucon64/
+drwxr-xr-x	root/root	usr/share/ucon64/dat/
+-rw-r--r--	root/root	usr/share/ucon64/dat/fds-20031116.dat
+-rw-r--r--	root/root	usr/share/ucon64/dat/gen-20031115.dat
+-rw-r--r--	root/root	usr/share/ucon64/dat/gg-20031115.dat
+-rw-r--r--	root/root	usr/share/ucon64/dat/n64-20031115.dat
+-rw-r--r--	root/root	usr/share/ucon64/dat/nes-20031208.dat
+-rw-r--r--	root/root	usr/share/ucon64/dat/pce-20031116.dat
+-rw-r--r--	root/root	usr/share/ucon64/dat/sms-20031115.dat
+-rw-r--r--	root/root	usr/share/ucon64/dat/snes-even-better.dat
+-rwxr-xr-x	root/root	usr/share/ucon64/discmage.so

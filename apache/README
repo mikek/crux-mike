@@ -1,0 +1,10 @@
+README for apache httpd 2.2.x
+
+REQUIREMENTS
+
+PRE-INSTALL
+
+POST-INSTALL
+If you want to separate apache privileges - run post-install (if not alredy done).
+
+RESOURCES

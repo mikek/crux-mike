@@ -1,0 +1,16 @@
+# Description: RSS/RDF/ATOM java-based newsreader
+# URL: http://rssowl.sourceforge.net/
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Depends on: gtk jre
+
+name=rssowl
+version=2.0-M8
+release=1
+source=(http://dl.sourceforge.net/rssowl/$name-$version.linux.gtk.x86.zip
+		$name.sh)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	cp -rf $SRC/$name $PKG/usr/lib
+	install -D -m 755 $SRC/$name.sh $PKG/usr/bin/$name
+}

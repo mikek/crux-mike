@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+# /etc/rc.d/bgpd: A BGPv4, BGPv4+, BGPv4- routing engine for use with Zebra
+#
+
+# The process must be configured first.
+[ -f /etc/quagga/bgpd.conf ] || exit 0
+
+RETVAL=0
+
+case "$1" in
+  start)
+	echo -n $"Starting bgpd "
+	/usr/sbin/bgpd -d
+	RETVAL=$?
+	echo
+	;;
+  stop)
+	echo -n $"Shutting down bgpd "
+	killall /usr/sbin/bgpd
+	RETVAL=$?
+	echo
+	;;
+  restart|reload)
+	$0 stop
+	$0 start
+	RETVAL=$?
+	;;
+  *)
+	echo $"Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $RETVAL

@@ -1,0 +1,38 @@
+# Description: A tool to backup all kinds of video game media
+# URL: http://ucon64.sourceforge.net
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Depends on:
+
+name=ucon64
+version=2.0.0
+release=4
+source=(http://dl.sourceforge.net/sourceforge/ucon64/$name-$version-src.tar.gz \
+		http://dl.sourceforge.net/sourceforge/ucon64/gen-20031115.zip \
+		http://dl.sourceforge.net/sourceforge/ucon64/fds-20031116.zip \
+		http://dl.sourceforge.net/sourceforge/ucon64/gg-20031115.zip \
+		http://dl.sourceforge.net/sourceforge/ucon64/n64-20031115.zip \
+		http://dl.sourceforge.net/sourceforge/ucon64/nes-20031208.zip \
+		http://dl.sourceforge.net/sourceforge/ucon64/pce-20031116.zip \
+		http://dl.sourceforge.net/sourceforge/ucon64/sms-20031115.zip \
+		http://dl.sourceforge.net/sourceforge/ucon64/snes-even-better.zip)
+
+build () {
+    cd $name-$version-src/src
+	./configure --prefix=/usr
+	make
+
+	/usr/bin/install -D -m 755 ucon64 $PKG/usr/bin/ucon64
+	# unusual place for the library, but as far as I know, it is useless in /usr/lib
+	/usr/bin/install -D -m 755 libdiscmage/discmage.so $PKG/usr/share/ucon64/discmage.so
+	
+	mkdir -p $PKG/usr/share/ucon64/dat/
+	cd $SRC
+	/usr/bin/install -m 644 fds-20031116.dat $PKG/usr/share/ucon64/dat
+	/usr/bin/install -D -m 644 gen-20031115.dat $PKG/usr/share/ucon64/dat
+	/usr/bin/install -D -m 644 gg-20031115.dat  $PKG/usr/share/ucon64/dat
+	/usr/bin/install -D -m 644 n64-20031115.dat $PKG/usr/share/ucon64/dat
+	/usr/bin/install -D -m 644 nes-20031208.dat $PKG/usr/share/ucon64/dat
+	/usr/bin/install -D -m 644 pce-20031116.dat $PKG/usr/share/ucon64/dat
+	/usr/bin/install -D -m 644 sms-20031115.dat $PKG/usr/share/ucon64/dat
+	/usr/bin/install -D -m 644 snes-even-better.dat $PKG/usr/share/ucon64/dat
+}

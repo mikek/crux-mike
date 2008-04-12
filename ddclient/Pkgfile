@@ -1,0 +1,21 @@
+# Description: Utility for maintaining your dynamic DNS entries
+# URL: http://ddclient.sf.net
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Packager: Jay Dolan, jdolan at jdolan dot dyndns dot org
+# Depends on: p5-io-socket-ssl
+
+name=ddclient
+version=3.7.3
+release=1
+source=(http://dl.sf.net/$name/$name-$version.tar.bz2 ddclient)
+
+build(){
+	cd $name-$version
+	install -d $PKG/usr/sbin
+	install ddclient $PKG/usr/sbin/
+	sed -i "s|/etc/ddclient/|/etc/|" $PKG/usr/sbin/ddclient
+	install -d $PKG/etc/rc.d
+	install -d $PKG/var/cache/ddclient
+	install ../ddclient $PKG/etc/rc.d/ddclient
+	install -m 600 sample-etc_ddclient.conf $PKG/etc/ddclient.conf
+}

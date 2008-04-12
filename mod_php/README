@@ -1,0 +1,16 @@
+README for mod_php 5.x.x
+
+REQUIREMENTS
+
+PRE-INSTALL
+
+POST-INSTALL
+For integration with apache:
+add to your httpd.conf to load the PHP module:
+  LoadModule php5_module lib/apache/libphp5.so
+
+and to parse certain extensions as PHP:
+  AddType application/x-httpd-php .php .phtml .php3 .php4 .php5
+  AddType application/x-httpd-php-source .phps
+
+RESOURCES

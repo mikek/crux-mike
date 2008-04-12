@@ -1,0 +1,18 @@
+# Description: An interactive process-tracking program
+# URL: http://www.isi.edu/~johnh/SOFTWARE/LAVAPS/
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Depends on: libgnomeui
+
+name=lavaps
+version=2.7
+release=1
+source=(http://www.isi.edu/~johnh/SOFTWARE/LAVAPS/$name-$version.tar.gz\
+		$name-$version-nonls.patch)
+
+build() {
+	cd $name-$version
+	patch -p1 -i ../$name-$version-nonls.patch
+	./configure --prefix=/usr --disable-nls
+	make
+	make DESTDIR=$PKG install
+}

@@ -1,0 +1,27 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/jUploadr -> /usr/lib/juploadr/jUploadr
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/juploadr/
+-rwxr-xr-x	root/root	usr/lib/juploadr/jUploadr
+-rw-r--r--	root/root	usr/lib/juploadr/juploadr.ico
+-rw-r--r--	root/root	usr/lib/juploadr/juploadr_icon.png
+-rw-r--r--	root/root	usr/lib/juploadr/juploadr_min.ico
+drwxr-xr-x	root/root	usr/lib/juploadr/lib/
+-rw-r--r--	root/root	usr/lib/juploadr/lib/BrowserLauncher2-10rc4.jar
+-rw-r--r--	root/root	usr/lib/juploadr/lib/Piccolo.jar
+-rw-r--r--	root/root	usr/lib/juploadr/lib/commons-beanutils.jar
+-rw-r--r--	root/root	usr/lib/juploadr/lib/commons-codec-1.3.jar
+-rw-r--r--	root/root	usr/lib/juploadr/lib/commons-httpclient-3.0-rc3.jar
+-rw-r--r--	root/root	usr/lib/juploadr/lib/commons-logging.jar
+-rw-r--r--	root/root	usr/lib/juploadr/lib/jai_codec.jar
+-rw-r--r--	root/root	usr/lib/juploadr/lib/jai_core.jar
+-rw-r--r--	root/root	usr/lib/juploadr/lib/jim-io.jar
+-rw-r--r--	root/root	usr/lib/juploadr/lib/juploadr-mac-libs.jar
+-rw-r--r--	root/root	usr/lib/juploadr/lib/juploadr.jar
+-rw-r--r--	root/root	usr/lib/juploadr/lib/libswt-gtk-3232.so
+-rw-r--r--	root/root	usr/lib/juploadr/lib/libswt-pi-gtk-3232.so
+-rw-r--r--	root/root	usr/lib/juploadr/lib/swt.jar
+drwxr-xr-x	root/root	usr/lib/juploadr/plugins/
+-rw-r--r--	root/root	usr/lib/juploadr/plugins/restflickrapi.jar
+-rw-r--r--	root/root	usr/lib/juploadr/plugins/zooomrapi.jar

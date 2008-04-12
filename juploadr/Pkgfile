@@ -1,0 +1,19 @@
+# Description: Java based cross-site photo uploader
+# URL: http://juploadr.org/
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Depends on: jre
+
+name=juploadr
+version=1.1.2
+release=1
+source=(http://dl.sourceforge.net/$name/jUploadr-$version-linuxGTK-i386.tar.gz)
+
+build() {
+	cd jUploadr-$version-linuxGTK-i386
+	
+	mkdir -p $PKG/usr/bin
+	mkdir -p $PKG/usr/lib/juploadr
+	cp -r lib plugins $PKG/usr/lib/juploadr
+	cp j[Uu]ploadr* $PKG/usr/lib/juploadr
+	ln -s /usr/lib/juploadr/jUploadr $PKG/usr/bin
+}

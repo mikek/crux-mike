@@ -1,0 +1,37 @@
+README for slmodem
+
+REQUIREMENTS
+This port use alsa kernel drivers by default. Be sure to read README inside
+package tarball for details.
+
+PRE-INSTALL
+
+POST-INSTALL
+Create dialout group: "groupadd dialout". You might want to run 'depmod -a'
+to make newly installed modules usable. Note, this is not a requirement for
+alsa modem driver mode.
+
+PRECAUTION
+There is at least one catch you can fall in with alsa modem driver: before
+actual dial sequence the 'Off-hook' mixer control (most likely for the second
+sound card, representing modem) should be turned on explicitly, while the
+'Phone' control of the main card should be set off after some timeout.
+
+Some sample scripts follows.
+
+modem_put.sh:
+/usr/bin/amixer -c1 sset 'Off-hook' off
+/usr/bin/amixer -c0 sset 'Phone' off
+
+modem_take.sh:
+/usr/bin/amixer -c1 sset 'Off-hook' on
+/usr/bin/amixer -c0 sset 'Phone' on
+sleep 35 && /usr/bin/amixer -c0 sset 'Phone' off
+
+Sending ATD* strings:
+modem_put.sh && 
+modem_take.sh &
+pppd ... ATD...
+modem_put.sh
+
+RESOURCES

@@ -1,0 +1,27 @@
+[notes]
+
+Existing ports
+--------------
+	wmlaptop: bugreport?
+	quagga: try to install mib files, realms patch, remove (modify) config samples
+	claws-mail: fix libetpan autodetection
+
+	fix users' group detection with /usr/bin/groups in pre/post-install
+
+To add
+------
+	mupen64: wait for mupen64-64bit branch to became multiuser ready
+	kvm: add guest-drivers. http://kvm.qumranet.com/kvmwiki/choose_the_right_kvm_%26_kernel_version
+	libgphoto2: deleted from opt!
+	
+[add to ck4up.conf]
+
+
+[to update]
+
+mike:
+	kipi-plugins 0.1.5-rc2 (when non-rc will be released)
+
+contrib:
+kvm from cutting_edge. fails to build: loops on target-i386/translate.c
+

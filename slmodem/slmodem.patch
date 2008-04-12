@@ -1,0 +1,38 @@
+diff -Nru slmodem-2.9.11-20070204-orig/drivers/Makefile slmodem-2.9.11-20070204/drivers/Makefile
+--- slmodem-2.9.11-20070204-orig/drivers/Makefile	2007-02-24 16:32:58.000000000 +0200
++++ slmodem-2.9.11-20070204/drivers/Makefile	2007-02-24 16:33:21.000000000 +0200
+@@ -31,7 +31,7 @@
+ all install uninstall: kernel-ver
+ 	$(MAKE) $@ KERNEL_VER=$(shell ./kernel-ver)
+ 
+-install: install-devices
++#install: install-devices
+ uninstall: remove-devices
+ 
+ kernel-ver::
+@@ -103,7 +103,7 @@
+ install:
+ 	install -D -m 644 slamr.ko $(module-dir)/slamr.ko
+ 	install -D -m 644 slusb.ko $(module-dir)/slusb.ko
+-	/sbin/depmod -a
++#	/sbin/depmod -a
+ uninstall:
+ 	modprobe -r slamr ; echo -n
+ 	modprobe -r slusb ; echo -n
+diff -Nru slmodem-2.9.11-20070204-orig/modem/Makefile slmodem-2.9.11-20070204/modem/Makefile
+--- slmodem-2.9.11-20070204-orig/modem/Makefile	2007-02-24 16:32:58.000000000 +0200
++++ slmodem-2.9.11-20070204/modem/Makefile	2007-02-24 16:35:44.000000000 +0200
+@@ -32,11 +32,11 @@
+ modem_test: modem_test.o modem_cmdline.o $(modem-objs) $(dp-objs) dsplibs.o $(sysdep-objs)
+ 
+ #SUPPORT_ALSA:=1
+-ifdef SUPPORT_ALSA
++#ifdef SUPPORT_ALSA
+ slmodemd: -lasound
+ CFLAGS+= -DSUPPORT_ALSA=1
+ LFLAGS+= -lasound
+-endif
++#endif
+ 
+ slmodemd modem_test:
+ 	$(CC) $(LFLAGS) -o $@ $^

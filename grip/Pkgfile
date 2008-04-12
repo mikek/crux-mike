@@ -1,0 +1,20 @@
+# Description: cd-player and cd-ripper for the Gnome desktop
+# URL: http://nostatic.org/grip/index.shtml
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Depends on: libgnomeui vorbis-tools lame vte
+
+name=grip
+version=3.3.1
+release=1
+source=(http://switch.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure \
+		--prefix=/usr \
+		--disable-nls \
+		--disable-static
+	make
+	make DESTDIR=$PKG install
+	rm -dr $PKG/usr/share/{locale,gnome}
+}

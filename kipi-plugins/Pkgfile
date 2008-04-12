@@ -1,0 +1,22 @@
+# Description: libkipi plugins for digikam and other KDE apps
+# URL: http://extragear.kde.org/apps/kipi
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: libkexif exiv2 libkipi libgphoto2 imlib2
+
+name=kipi-plugins
+version=0.1.4
+release=1
+source=(http://dl.sourceforge.net/sourceforge/kipi/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+    ./configure --prefix=/usr \
+				--mandir=/usr/man \
+				--disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/locale/* ! -wholename "*locale/en*" -delete
+	find $PKG/usr/share/doc/HTML/* ! -wholename "*HTML/en*" -delete
+	find $PKG/usr -iname "*readme*" -delete
+}

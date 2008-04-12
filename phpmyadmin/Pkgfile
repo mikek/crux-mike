@@ -1,0 +1,24 @@
+# Description: PHP tool to handle the administration of MySQL over the WWW
+# URL: http://www.phpmyadmin.net/
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Packager: Jürgen Daubert, juergen dot daubert at t-online dot de
+# Depends on: mod_php
+
+name=phpmyadmin
+version=2.11.5
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/phpMyAdmin-$version-english.tar.bz2)
+
+build () {
+	mkdir -p $PKG/srv/www/apache/htdocs
+	cp -R phpMyAdmin-$version-english $PKG/srv/www/apache/htdocs/phpmyadmin
+	cd $PKG/srv/www/apache/htdocs/phpmyadmin
+	rm -r scripts test contrib
+	find libraries \
+		-name README -or \
+		-name LICENSE -or \
+		-name CHANGELOG | xargs rm	
+	find lang/* -path "*/english*.inc.php" -or -exec rm {} \;
+	find -maxdepth 1 -type f | egrep -v '.*php|.*html|.*css' | xargs rm
+	find -type f -exec chmod -x {} \;
+}

@@ -1,0 +1,17 @@
+# Description: Advanced memory diagnostic tool
+# URL: http://www.memtest.org/
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Depends on:
+
+name=memtest86+
+version=2.01
+release=1
+source=(http://www.memtest.org/download/$version/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	make
+	#./makeiso.sh
+	#/usr/bin/install -D -m 644 memtest.iso $PKG/usr/share/memtest86+/memtest.iso
+	/usr/bin/install -D -m 644 memtest.bin $PKG/boot/memtest.bin
+}

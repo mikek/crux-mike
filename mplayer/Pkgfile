@@ -1,0 +1,56 @@
+# Description: Media player (with cyrillic osd font)
+# URL: http://www.mplayerhq.hu/
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Depends on: freetype xorg-libxinerama xorg-libxv xorg-libxxf86dga xorg-libxxf86vm
+
+# Nice to have: zlib, lzo, libsdl, libjpeg, libpng, lame, toolame, libogg,
+# libvorbis, cdparanoia, libmatroska, libdts, libtheora, libxvid, libfame,
+# aalib, win32-essential-codecs, libdv, faac, x264
+
+name=mplayer
+version=1.0rc2
+release=2
+source=(http://www1.mplayerhq.hu/MPlayer/releases/MPlayer-$version.tar.bz2 \
+		http://www.cabextract.org.uk/cabextract-1.2.tar.gz \
+		http://dl.sourceforge.net/sourceforge/corefonts/arial32.exe \
+		mplayer.conf
+		http://www.mplayerhq.hu/MPlayer/patches/demux_audio_fix_20080129.diff
+		http://www.mplayerhq.hu/MPlayer/patches/demux_mov_fix_20080129.diff
+		http://www.mplayerhq.hu/MPlayer/patches/url_fix_20080120.diff
+		http://www.mplayerhq.hu/MPlayer/patches/stream_cddb_fix_20080120.diff)
+
+build() {
+	(cd cabextract-1.2 && ./configure && make)
+	cabextract-1.2/cabextract --lowercase arial32.exe
+	cd MPlayer-$version
+
+	for diff in ../*.diff
+	do
+		patch -p0 -i $diff
+	done
+	
+	# mplayer decides optimizations at configure time
+	unset CFLAGS
+	echo | ./configure --prefix=/usr \
+				--mandir=/usr/man \
+				--win32codecsdir=/usr/lib/win32 \
+				--with-freetype-config=/usr/bin/freetype-config \
+				--enable-menu
+	make
+	make DESTDIR=$PKG install
+
+	(cd $PKG/usr/man/man1; rm mencoder.1; ln -s mplayer.1.gz mencoder.1.gz)
+
+	# fonts
+	/usr/bin/install -D -m 644 $SRC/arial.ttf $PKG/usr/share/mplayer/font/arial.ttf
+	/usr/bin/install -D -m 644 $SRC/arialbd.ttf $PKG/usr/share/mplayer/font/arialbd.ttf
+
+	# configs
+	cp $SRC/mplayer.conf $PKG/usr/etc/mplayer/
+	sed -i s/'\#y\ menu\ hide'/'y\ menu\ hide'/ etc/input.conf
+	cp etc/input.conf $PKG/usr/etc/mplayer/
+	cp etc/codecs.conf $PKG/usr/etc/mplayer/
+	cp etc/menu.conf $PKG/usr/etc/mplayer/
+
+	chown -R root:root $PKG
+}

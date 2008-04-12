@@ -1,0 +1,77 @@
+#!/bin/sh
+#
+# slmodemd:    Starts the SmartLink Modem Daemon
+
+prog=/usr/sbin/slmodemd
+
+SLMODEMD_COUNTRY=RUSSIA
+SLMODEMD_USE_ALSA=yes
+
+SLMODEMD_DEVICE=slamr0
+ALSA_DEV="hw:1"
+OPTS="--group=dialout"
+
+
+RETVAL=0
+
+start() {
+	echo -n "Starting SmartLink Modem driver: "
+	if [ $SLMODEMD_USE_ALSA = yes ]; then
+		modprobe snd_intel8x0m
+		OPTS="$OPTS --alsa $ALSA_DEV"
+	else
+		modprobe slamr
+		modprobe slusb
+		OPTS="$OPTS /dev/$SLMODEMD_DEVICE"
+		for i in `seq 0 3`; do mknod -m 0600 /dev/slamr$i c 242 $i; done &>/dev/null
+		for i in `seq 0 15`; do mknod -m 0600 /dev/slusb$i c 243 $i; done &>/dev/null
+	fi
+	
+	$prog --country=$SLMODEMD_COUNTRY $OPTS &
+	ln -s /dev/ttySL0 /dev/modem
+#	if [ ! -f /dev/ppp ]; then
+#		mknod /dev/ppp c 108 0
+#	fi
+	RETVAL=$?
+#	[ $RETVAL -eq 0 ] && echo "success" || echo "failure"
+#	echo
+#	[ $RETVAL -eq 0 ] && touch /var/lock/slmodemd
+	return $RETVAL
+	echo
+}
+
+stop() {
+	echo -n "Shutting down SmartLink Modem driver: "
+	killall $prog
+	rm /dev/modem
+	if [ $SLMODEMD_USE_ALSA = yes ]; then
+		rmmod snd_intel8x0m
+	else
+		rmmod slamr
+		rmmod slusb
+	fi
+	rm -f /var/lib/slmodem/*
+	RETVAL=$?
+#	[ $RETVAL -eq 0 ] && rm -f /var/lock/slmodemd
+	return $RETVAL
+	echo
+}
+
+case "$1" in
+  start)
+	start
+	;;
+  stop)
+	stop
+	;;
+  restart)
+	stop
+	start
+	RETVAL=$?
+	;;
+  *)
+	echo "usage: $prog {start|stop|restart}"
+	exit 1
+esac
+
+exit $RETVAL

@@ -1,0 +1,42 @@
+# Description: A routing software suite for OSPFv2, OSPFv3, RIP v1 and v2, RIPng and BGP-4
+# URL: http://www.quagga.net
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Packager: Oleksiy V. Khilkevich, centericq at ukr dot net
+# Depends on: net-snmp iproute2
+
+name=quagga
+version=0.98.6
+release=1
+source=(http://www.quagga.net/download/$name-$version.tar.gz\
+		zebra bgpd)
+
+build() {
+	# First check for quagga user to be available
+	if [ ! `getent passwd | awk -F: '{ print $1 }' | grep ^quagga$` ]; then
+		echo "===> ERORR: quagga user doesn't exists. See provided README for details"
+		exit 1
+	fi
+
+	cd $name-$version
+	./configure --prefix=/usr \
+				--sysconfdir=/etc/quagga \
+				--localstatedir=/var/lib/quagga \
+				--enable-user=quagga \
+				--enable-group=quagga \
+				--disable-capabilities \
+				--enable-ipv6 \
+				--enable-netlink \
+				--enable-snmp \
+				--enable-opaque-lsa \
+				--enable-ospf-te \
+				--enable-multipath=0 \
+				--enable-rtadv
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/info
+	mkdir -p $PKG/var/lib/quagga
+	chown quagga:quagga $PKG/var/lib/quagga
+	chmod 700 $PKG/var/lib/quagga
+	install -D -m 755 $SRC/zebra $PKG/etc/rc.d/zebra
+	install -D -m 755 $SRC/bgpd $PKG/etc/rc.d/bgpd
+}

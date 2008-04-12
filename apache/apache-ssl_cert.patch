@@ -1,0 +1,21 @@
+diff -Nru httpd-2.2.6-orig/docs/conf/extra/httpd-ssl.conf.in httpd-2.2.6/docs/conf/extra/httpd-ssl.conf.in
+--- httpd-2.2.6-orig/docs/conf/extra/httpd-ssl.conf.in	2007-09-15 22:09:23.000000000 +0300
++++ httpd-2.2.6/docs/conf/extra/httpd-ssl.conf.in	2007-09-15 22:11:57.000000000 +0300
+@@ -96,7 +96,7 @@
+ #   in mind that if you have both an RSA and a DSA certificate you
+ #   can configure both in parallel (to also allow the use of DSA
+ #   ciphers, etc.)
+-SSLCertificateFile "@exp_sysconfdir@/server.crt"
++SSLCertificateFile "/etc/ssl/keys/apache.key"
+ #SSLCertificateFile "@exp_sysconfdir@/server-dsa.crt"
+ 
+ #   Server Private Key:
+@@ -104,7 +104,7 @@
+ #   directive to point at the key file.  Keep in mind that if
+ #   you've both a RSA and a DSA private key you can configure
+ #   both in parallel (to also allow the use of DSA ciphers, etc.)
+-SSLCertificateKeyFile "@exp_sysconfdir@/server.key"
++SSLCertificateKeyFile "/etc/ssl/keys/apache.key"
+ #SSLCertificateKeyFile "@exp_sysconfdir@/server-dsa.key"
+ 
+ #   Server Certificate Chain:

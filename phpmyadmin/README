@@ -1,0 +1,15 @@
+README for phpmyadmin 2.11.x
+
+REQUIREMENTS
+
+PRE-INSTALL
+
+POST-INSTALL
+
+   Add the following directives to httpd.conf:
+   
+   LoadModule php5_module lib/apache/libphp5.so
+   AddType application/x-httpd-php .php
+
+PRECAUTION
+

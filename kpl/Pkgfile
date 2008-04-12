@@ -1,0 +1,17 @@
+# Description: A tool for graphical presentation of data sets and functions
+# URL: http://frsl06.physik.uni-freiburg.de/privat/stille/kpl/
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Depends on: kdelibs
+
+name=kpl
+version=3.3
+release=1
+source=(http://frsl06.physik.uni-freiburg.de/privat/stille/kpl/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share/{doc,locale}
+}

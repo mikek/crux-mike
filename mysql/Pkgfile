@@ -1,0 +1,42 @@
+# Description: SQL database server
+# URL: http://www.mysql.com
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Depends on: ncurses zlib openssl
+
+# juergen dot daubert at t-online dot de's ports were templates
+
+name=mysql
+version=5.0.51
+release=1
+source=(http://mirror.switch.ch/mirror/mysql/Downloads/MySQL-5.0/$name-$version.tar.gz \
+		my.cnf mysqld)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+				--sysconfdir=/etc \
+				--libexecdir=/usr/sbin \
+				--localstatedir=/srv/db/mysql \
+				--enable-assembler \
+				--enable-thread-safe-client \
+				--enable-innodb \
+				--with-extra-charsets=complex \
+				--without-berkeley-db \
+				--without-debug \
+				--without-docs \
+				--without-bench \
+				--with-openssl
+	make
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/mysql-test
+	rm $PKG/usr/share/mysql/charsets/README
+	find $PKG/usr/share/mysql/* -prune -type f ! -regex '.*\(cnf\|sql\)$' | xargs rm -f {} \;
+	find $PKG/usr/share/mysql/* -type d ! -name english ! -name charsets | xargs rm -rf {} \;
+	mkdir -p $PKG/{var/log,var/run,srv/db}
+	touch mysqld.log
+	install -m 600 -o daemon -g daemon mysqld.log $PKG/var/log
+	install -d -m 700 -o daemon -g daemon $PKG/srv/db/mysql
+	install -D -m 755 $SRC/mysqld $PKG/etc/rc.d/mysqld
+	install -m 600 $SRC/my.cnf $PKG/etc
+}

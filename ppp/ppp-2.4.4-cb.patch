@@ -1,0 +1,12 @@
+diff -Nru ppp-2.4.4-orig/pppd/Makefile.linux ppp-2.4.4/pppd/Makefile.linux
+--- ppp-2.4.4-orig/pppd/Makefile.linux	2006-06-04 08:07:46.000000000 +0300
++++ ppp-2.4.4/pppd/Makefile.linux	2006-07-03 13:58:09.000000000 +0300
+@@ -68,7 +68,7 @@
+ PLUGIN=y
+ 
+ # Enable Microsoft proprietary Callback Control Protocol
+-#CBCP=y
++CBCP=y
+ 
+ # Enable EAP SRP-SHA1 authentication (requires libsrp)
+ #USE_SRP=y

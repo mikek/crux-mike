@@ -1,0 +1,29 @@
+README for ucon64
+
+REQUIREMENTS
+
+PRE-INSTALL
+
+POST-INSTALL
+1. suid root the binary(/usr/bin/ucon64) if you want to use parallel port.
+
+2. run something like this as regular user:
+#! /bin/sh
+#
+if [ ! -e $HOME/.ucon64 ]; then
+	mkdir $HOME/.ucon64
+fi
+if [ ! -e $HOME/.ucon64/dat ]; then
+	for dat in `ls -1 /usr/share/ucon64/dat/*.dat`
+	do
+		ln -s $dat $HOME/.ucon64/`basename $dat`
+	done
+fi
+if [ ! -e $HOME/.ucon64/libdiscmage.so ]; then 
+	ln -s /usr/share/ucon64/discmage.so $HOME/.ucon64/discmage.so
+fi
+
+RESOURCES
+You can download static ucon64 gui binary here:
+http://dl.sourceforge.net/ucon64/uf-FOX-1.1-linux-bin.zip
+(Making a port for that with all it's deps would be an overkill)

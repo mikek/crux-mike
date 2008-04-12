@@ -1,0 +1,19 @@
+# Description: Perl client interface for the PostgreSQL database
+# URL: http://search.cpan.org/~arc/DBD-PgPP-0.05/PgPP.pm
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Depends on: p5-dbi
+
+name=p5-pgpp
+version=0.05
+release=2
+source=(http://search.cpan.org/CPAN/authors/id/A/AR/ARC/DBD-PgPP-$version.tar.gz)
+
+build () {
+	cd DBD-PgPP-$version
+	perl Makefile.PL
+	make OPTIMIZE="$CFLAGS"
+	make DESTDIR=$PKG install
+	find $PKG -name .packlist -exec rm {} \;
+	find $PKG -name perllocal.pod -exec rm {} \;
+	find $PKG -depth -type d -empty -exec rm -rf {} \;
+}

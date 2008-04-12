@@ -1,0 +1,36 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libkdcraw/
+-rw-r--r--	root/root	usr/include/libkdcraw/dcrawbinary.h
+-rw-r--r--	root/root	usr/include/libkdcraw/dcrawinfocontainer.h
+-rw-r--r--	root/root	usr/include/libkdcraw/dcrawsettingswidget.h
+-rw-r--r--	root/root	usr/include/libkdcraw/kdcraw.h
+-rw-r--r--	root/root	usr/include/libkdcraw/libkdcraw_export.h
+-rw-r--r--	root/root	usr/include/libkdcraw/rawdecodingsettings.h
+-rw-r--r--	root/root	usr/include/libkdcraw/rawfiles.h
+-rw-r--r--	root/root	usr/include/libkdcraw/version.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libkdcraw.la
+lrwxrwxrwx	root/root	usr/lib/libkdcraw.so -> libkdcraw.so.2.0.1
+lrwxrwxrwx	root/root	usr/lib/libkdcraw.so.2 -> libkdcraw.so.2.0.1
+-rwxr-xr-x	root/root	usr/lib/libkdcraw.so.2.0.1
+drwxr-xr-x	root/root	usr/lib/libkdcraw2/
+-rw-r--r--	root/root	usr/lib/libkdcraw2/CAMERALIST
+-rwxr-xr-x	root/root	usr/lib/libkdcraw2/kdcraw
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libkdcraw.pc
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/icons/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/128x128/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/128x128/apps/
+-rw-r--r--	root/root	usr/share/icons/hicolor/128x128/apps/kdcraw.png
+drwxr-xr-x	root/root	usr/share/icons/hicolor/32x32/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/32x32/apps/
+-rw-r--r--	root/root	usr/share/icons/hicolor/32x32/apps/kdcraw.png
+drwxr-xr-x	root/root	usr/share/icons/hicolor/48x48/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/48x48/apps/
+-rw-r--r--	root/root	usr/share/icons/hicolor/48x48/apps/kdcraw.png
+drwxr-xr-x	root/root	usr/share/icons/hicolor/64x64/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/64x64/apps/
+-rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/kdcraw.png

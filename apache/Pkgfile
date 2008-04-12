@@ -1,0 +1,42 @@
+# Description: Apache HTTP server version 2.2.x
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# URL: http://httpd.apache.org/
+# Depends on: apr libpcre openssl zlib
+
+# juergen dot daubert at t-online dot de's ports were templates
+
+name=apache
+version=2.2.8
+release=1
+source=(http://www.apache.org/dist/httpd/httpd-$version.tar.bz2 \
+        $name-ssl_cert.patch crux-fhs.layout apache)
+build(){
+	cd httpd-$version
+	patch -p1 < $SRC/$name-ssl_cert.patch
+	cat $SRC/crux-fhs.layout >> config.layout
+	./configure --enable-layout=CRUX-FHS \
+				--enable-so \
+				--enable-modules=all \
+				--enable-mods-shared=all \
+				--enable-ssl \
+				--enable-deflate \
+				--with-gdbm \
+				--with-expat=/usr \
+				--with-mpm=prefork \
+				--with-apr=/usr \
+				--with-apr-util=/usr \
+				--with-pcre=/usr
+	make
+	make DESTDIR=$PKG install
+
+	mkdir -p $PKG/etc/ssl/{keys,certs}
+	touch $PKG/etc/ssl/keys/apache.key
+	touch $PKG/etc/ssl/certs/apache.crt
+	install -D -m 755 $SRC/apache $PKG/etc/rc.d/apache
+	#cd $PKG/usr/lib/apache/build
+	#ln -s $(apr-1-config --apr-libtool) libtool
+	sed -i s/'\/usr\/local\/bin\/perl'/'\/usr\/bin\/perl'/ $PKG/srv/www/apache/cgi-bin/printenv
+	rmdir $PKG/usr/bin
+	rm -R $PKG/srv/www/apache/htdocs/*
+	rm $PKG/srv/www/apache/{error,icons}/README*
+}

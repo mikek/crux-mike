@@ -1,0 +1,25 @@
+README for memtest86+
+
+REQUIREMENTS
+
+PRE-INSTALL
+
+POST-INSTALL
+To make a bootable floppy with memtest: 
+	"dd if=/boot/memtest.bin of=/dev/fdX bs=8192"
+	
+To integrate it into GRUB menu add the following lines to /boot/grub/grub.conf:
+	title Memtest86+
+	kernel (hdY,Z)/boot/memtest.bin
+
+To integrate it into Lilo menu add this to /etc/lilo.conf:
+	image = /boot/memtest.bin
+	label = memtest
+
+and run "lilo -t && lilo" 
+(Not shure if lilo can handle names like "Memtest86+")
+
+You can get a bootable CD image at
+http://www.memtest.org/#downiso
+
+RESOURCES

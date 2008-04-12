@@ -1,0 +1,16 @@
+# Description: A wrapper around Exiv2 library to manipulate pictures metadata
+# URL: http://www.kipi-plugins.org
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Depends on: kdelibs exiv2
+
+name=libkexiv2
+version=0.1.6
+release=1
+source=(http://dl.sourceforge.net/sourceforge/kipi/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}

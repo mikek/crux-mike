@@ -1,0 +1,18 @@
+README for vsftpd 2.0.x
+
+REQUIREMENTS
+
+PRE-INSTALL
+Do not forget to adjust /etc/hosts.{allow,deny} as tcp_wrappers support is on.
+
+POST-INSTALL
+If you want to separate vsftpd privileges - run post-install (if not alredy
+done).
+
+RESOURCES
+
+PRECAUTION
+The anon_root is set to /srv/ftp/vsftpd in config file, vsftpd by default uses
+'ftp' user for anonymous sessions (but we did not touch crux default 'ftp' user 
+account with home=/var/ftp). Make relevant permissions changes to anon_root dir
+or change vsftpd.conf yourself to allow anonymous uploads.

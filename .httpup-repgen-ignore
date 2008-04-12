@@ -1,0 +1,14 @@
+\.svn$                                                                                     
+\.tar\.gz$                                                                                 
+\.tgz$                                                                                     
+\.tar\.bz2$                                                                                
+\.zip$                                                                                     
+^CVS$                                                                                      
+^.*/CVS$                                                                                   
+/CVS/.*                                                                                    
+^CVS/.*                                                                                    
+.*~$
+.htaccess
+index.php
+index.html
+mike_ports.css
