@@ -11,12 +11,12 @@ drwxr-xr-x	root/root	usr/include/libkdcraw/
 -rw-r--r--	root/root	usr/include/libkdcraw/version.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libkdcraw.la
-lrwxrwxrwx	root/root	usr/lib/libkdcraw.so -> libkdcraw.so.2.0.1
-lrwxrwxrwx	root/root	usr/lib/libkdcraw.so.2 -> libkdcraw.so.2.0.1
--rwxr-xr-x	root/root	usr/lib/libkdcraw.so.2.0.1
-drwxr-xr-x	root/root	usr/lib/libkdcraw2/
--rw-r--r--	root/root	usr/lib/libkdcraw2/CAMERALIST
--rwxr-xr-x	root/root	usr/lib/libkdcraw2/kdcraw
+lrwxrwxrwx	root/root	usr/lib/libkdcraw.so -> libkdcraw.so.3.0.0
+lrwxrwxrwx	root/root	usr/lib/libkdcraw.so.3 -> libkdcraw.so.3.0.0
+-rwxr-xr-x	root/root	usr/lib/libkdcraw.so.3.0.0
+drwxr-xr-x	root/root	usr/lib/libkdcraw3/
+-rw-r--r--	root/root	usr/lib/libkdcraw3/CAMERALIST
+-rwxr-xr-x	root/root	usr/lib/libkdcraw3/kdcraw
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libkdcraw.pc
 drwxr-xr-x	root/root	usr/share/
