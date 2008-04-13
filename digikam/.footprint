@@ -23,6 +23,7 @@ drwxr-xr-x	root/root	usr/include/digikam/
 -rw-r--r--	root/root	usr/include/digikam/dimgimagefilters.h
 -rw-r--r--	root/root	usr/include/digikam/dimgsharpen.h
 -rw-r--r--	root/root	usr/include/digikam/dimgthreadedfilter.h
+-rw-r--r--	root/root	usr/include/digikam/dlogoaction.h
 -rw-r--r--	root/root	usr/include/digikam/dmetadata.h
 -rw-r--r--	root/root	usr/include/digikam/dpopupmenu.h
 -rw-r--r--	root/root	usr/include/digikam/dprogressdlg.h
@@ -51,6 +52,7 @@ drwxr-xr-x	root/root	usr/include/digikam/
 -rw-r--r--	root/root	usr/include/digikam/paniconwidget.h
 -rw-r--r--	root/root	usr/include/digikam/photoinfocontainer.h
 -rw-r--r--	root/root	usr/include/digikam/previewwidget.h
+-rw-r--r--	root/root	usr/include/digikam/searchtextbar.h
 -rw-r--r--	root/root	usr/include/digikam/sidebar.h
 -rw-r--r--	root/root	usr/include/digikam/squeezedcombobox.h
 -rw-r--r--	root/root	usr/include/digikam/statusnavigatebar.h
@@ -136,7 +138,6 @@ drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/applications/
 drwxr-xr-x	root/root	usr/share/applications/kde/
 -rw-r--r--	root/root	usr/share/applications/kde/digikam.desktop
--rw-r--r--	root/root	usr/share/applications/kde/digikamthemedesigner.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/showfoto.desktop
 drwxr-xr-x	root/root	usr/share/apps/
 drwxr-xr-x	root/root	usr/share/apps/digikam/
@@ -162,6 +163,7 @@ drwxr-xr-x	root/root	usr/share/apps/digikam/about/
 -rw-r--r--	root/root	usr/share/apps/digikam/about/box-top-right.png
 -rw-r--r--	root/root	usr/share/apps/digikam/about/digikam.css
 -rw-r--r--	root/root	usr/share/apps/digikam/about/kde_infopage.css
+-rw-r--r--	root/root	usr/share/apps/digikam/about/kde_infopage_rtl.css
 -rw-r--r--	root/root	usr/share/apps/digikam/about/main.html
 -rw-r--r--	root/root	usr/share/apps/digikam/about/top-left.png
 -rw-r--r--	root/root	usr/share/apps/digikam/about/top-middle.png
@@ -225,6 +227,9 @@ drwxr-xr-x	root/root	usr/share/apps/digikam/data/
 -rw-r--r--	root/root	usr/share/apps/digikam/data/wall-texture.png
 -rw-r--r--	root/root	usr/share/apps/digikam/data/wood-pattern.png
 -rw-r--r--	root/root	usr/share/apps/digikam/data/worldmap.jpg
+-rw-r--r--	root/root	usr/share/apps/digikam/data/zoom10.png
+-rw-r--r--	root/root	usr/share/apps/digikam/data/zoom20.png
+-rw-r--r--	root/root	usr/share/apps/digikam/data/zoom30.png
 -rw-r--r--	root/root	usr/share/apps/digikam/digikam-splash.png
 -rw-r--r--	root/root	usr/share/apps/digikam/digikamimageplugin_adjustcurves_ui.rc
 -rw-r--r--	root/root	usr/share/apps/digikam/digikamimageplugin_adjustlevels_ui.rc
@@ -347,7 +352,6 @@ drwxr-xr-x	root/root	usr/share/apps/digikam/icons/hicolor/128x128/actions/
 -rw-r--r--	root/root	usr/share/apps/digikam/icons/hicolor/128x128/actions/viewimage.png
 -rw-r--r--	root/root	usr/share/apps/digikam/icons/hicolor/128x128/actions/whitebalance.png
 drwxr-xr-x	root/root	usr/share/apps/digikam/icons/hicolor/128x128/apps/
--rw-r--r--	root/root	usr/share/apps/digikam/icons/hicolor/128x128/apps/dcraw.png
 -rw-r--r--	root/root	usr/share/apps/digikam/icons/hicolor/128x128/apps/digikam.png
 drwxr-xr-x	root/root	usr/share/apps/digikam/icons/hicolor/16x16/
 drwxr-xr-x	root/root	usr/share/apps/digikam/icons/hicolor/16x16/actions/
@@ -507,6 +511,8 @@ drwxr-xr-x	root/root	usr/share/apps/digikam/icons/hicolor/32x32/actions/
 -rw-r--r--	root/root	usr/share/apps/digikam/icons/hicolor/32x32/actions/inserttext.png
 -rw-r--r--	root/root	usr/share/apps/digikam/icons/hicolor/32x32/actions/invertimage.png
 -rw-r--r--	root/root	usr/share/apps/digikam/icons/hicolor/32x32/actions/lensdistortion.png
+-rw-r--r--	root/root	usr/share/apps/digikam/icons/hicolor/32x32/actions/lighttable.png
+-rw-r--r--	root/root	usr/share/apps/digikam/icons/hicolor/32x32/actions/lighttableadd.png
 -rw-r--r--	root/root	usr/share/apps/digikam/icons/hicolor/32x32/actions/mirror.png
 -rw-r--r--	root/root	usr/share/apps/digikam/icons/hicolor/32x32/actions/noisereduction.png
 -rw-r--r--	root/root	usr/share/apps/digikam/icons/hicolor/32x32/actions/oilpaint.png
@@ -761,7 +767,6 @@ drwxr-xr-x	root/root	usr/share/apps/showfoto/icons/hicolor/128x128/actions/
 -rw-r--r--	root/root	usr/share/apps/showfoto/icons/hicolor/128x128/actions/resize_image.png
 -rw-r--r--	root/root	usr/share/apps/showfoto/icons/hicolor/128x128/actions/slideshow.png
 drwxr-xr-x	root/root	usr/share/apps/showfoto/icons/hicolor/128x128/apps/
--rw-r--r--	root/root	usr/share/apps/showfoto/icons/hicolor/128x128/apps/dcraw.png
 -rw-r--r--	root/root	usr/share/apps/showfoto/icons/hicolor/128x128/apps/showfoto.png
 drwxr-xr-x	root/root	usr/share/apps/showfoto/icons/hicolor/16x16/
 drwxr-xr-x	root/root	usr/share/apps/showfoto/icons/hicolor/16x16/actions/
@@ -823,11 +828,11 @@ drwxr-xr-x	root/root	usr/share/apps/showfoto/icons/hicolor/scalable/actions/
 drwxr-xr-x	root/root	usr/share/doc/
 drwxr-xr-x	root/root	usr/share/doc/HTML/
 drwxr-xr-x	root/root	usr/share/doc/HTML/en/
-drwxr-xr-x	root/root	usr/share/doc/HTML/en/digikam-0.9.2-final-apidocs/
-drwxr-xr-x	root/root	usr/share/doc/HTML/en/digikam-0.9.2-final-apidocs/digikam/
-drwxr-xr-x	root/root	usr/share/doc/HTML/en/digikam-0.9.2-final-apidocs/digikam/digikam/
-drwxr-xr-x	root/root	usr/share/doc/HTML/en/digikam-0.9.2-final-apidocs/digikam/digikam/html/
-drwxr-xr-x	root/root	usr/share/doc/HTML/en/digikam-0.9.2-final-apidocs/digikam/html/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/digikam-0.9.3-apidocs/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/digikam-0.9.3-apidocs/digikam/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/digikam-0.9.3-apidocs/digikam/digikam/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/digikam-0.9.3-apidocs/digikam/digikam/html/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/digikam-0.9.3-apidocs/digikam/html/
 drwxr-xr-x	root/root	usr/share/icons/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/128x128/
