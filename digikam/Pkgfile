@@ -5,7 +5,7 @@
 # Depends on: sqlite3 kipi-plugins libkexiv2 libkdcraw jasper
 
 name=digikam
-version=0.9.3
+version=0.9.4-beta3
 release=1
 source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
 
@@ -16,6 +16,7 @@ build() {
 				--disable-debug
 	make
 	make DESTDIR=$PKG install
-	find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+	find $PKG/usr/share/locale/* ! -wholename "*HTML/en*" \
 		! -wholename "*locale/en*" -delete
+	rm -rf $PKG/usr/share/doc
 }
