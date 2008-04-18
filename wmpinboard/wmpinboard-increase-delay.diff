@@ -1,0 +1,15 @@
+diff -Nru wmpinboard-1.0-orig/src/wmpinboard.c wmpinboard-1.0/src/wmpinboard.c
+--- wmpinboard-1.0-orig/src/wmpinboard.c	2008-03-23 02:32:24.929587198 +0200
++++ wmpinboard-1.0/src/wmpinboard.c	2008-03-23 02:44:02.451588462 +0200
+@@ -2252,9 +2252,9 @@
+ 
+     /* sleep for a while... */
+     switch (state.mode) {
+-      case M_NOOP: usleep(100000L); break;
++      case M_NOOP: usleep(2000000L); break;
+       case M_ALRM: usleep(500000L); break;  /* animation timing, 0.5s */
+-      default:     usleep( 10000L);
++      default:     usleep(100000L);
+     }
+   }
+ }
