@@ -1,7 +1,7 @@
 # Description: Network performance measurement 
 # URL: http://www.netperf.org/netperf/NetperfPage.html
 # Maintainer: Mikhail Kolesnik, mike at openbunker dot org
-# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri, ycrux at club-internet dot fr
 # Depends on: 
 
 name=netperf
@@ -9,7 +9,7 @@ version=2.4.4
 release=1
 source=(ftp://ftp.netperf.org/$name/$name-$version.tar.gz)
 
-build () {
+build() {
 	cd $name-$version
 	./configure --prefix=/usr \
 				--mandir='${prefix}/man'
