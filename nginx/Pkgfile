@@ -1,0 +1,58 @@
+# Description: Ultra fast HTTP and mail proxy server
+# URL: http://nginx.net/
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Packager: Younes Hafri, ycrux at club-internet dot fr
+# Depends on: perl libpcre openssl
+
+name=nginx
+version=0.5.35
+release=1
+source=(http://sysoev.ru/$name/$name-$version.tar.gz \
+		$name-destdir.patch \
+		$name.conf \
+		$name)
+
+build() {
+	mkdir -p $PKG/var/spool/$name
+	cd $name-$version
+	(cd auto && patch -p0 -i $SRC/$name-destdir.patch)
+
+	./configure --prefix=/srv/www/$name \
+				--sbin-path=/usr/bin/$name \
+				--conf-path=/etc/$name/$name.conf \
+				--pid-path=/var/run/$name.pid \
+				--lock-path=/var/lock/$name.lock \
+				--http-client-body-temp-path=/var/spool/$name/client_body_temp \
+				--http-proxy-temp-path=/var/spool/$name/proxy_temp \
+				--http-fastcgi-temp-path=/var/spool/$name/fastcgi_temp \
+				--error-log-path=/var/log/$name \
+				--http-log-path=/var/log/$name/access.log \
+				--error-log-path=/var/log/$name/error.log \
+				--user=$name \
+				--group=$name \
+				--with-zlib-asm=pentiumpro \
+				--with-http_ssl_module \
+				--with-http_realip_module \
+				--with-http_addition_module \
+				--with-http_sub_module \
+				--with-http_dav_module \
+				--with-http_flv_module \
+				--with-http_stub_status_module \
+				--with-http_perl_module \
+				--without-mail_pop3_module \
+				--without-mail_imap_module \
+				--without-mail_smtp_module
+	make
+	make DESTDIR=$PKG install
+
+	mkdir -p $PKG/var/spool/$name
+	touch $PKG/var/log/$name/access.log
+	touch $PKG/var/log/$name/error.log
+	
+	install -m 644 $SRC/$name.conf $PKG/etc/$name/$name.conf
+	install -D -m 755 $SRC/$name $PKG/etc/rc.d/$name
+	
+	find $PKG/usr/lib/perl5 -name .packlist -exec rm {} \;
+	find $PKG/usr/lib/perl5 -name perllocal.pod -exec rm {} \;
+	find $PKG/usr/lib/perl5 -depth -type d -empty -exec rm -rf {} \;
+}
