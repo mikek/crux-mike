@@ -1,0 +1,19 @@
+# Description: A benchmark tool for measuring web server performance
+# URL: http://www.hpl.hp.com/personal/David_Mosberger/httperf.html
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=httperf
+version=0.9.0
+release=1
+source=(ftp://ftp.hpl.hp.com/pub/httperf/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	./configure --prefix=/usr \
+				--mandir=$PKG/usr/man
+	make
+	make prefix=$PKG/usr exec_prefix=$PKG/usr install
+}
