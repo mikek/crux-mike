@@ -4,7 +4,7 @@
 # Depends on: alsa-lib
 
 name=slmodem
-version=2.9.11-20080126
+version=2.9.11-20080417
 release=1
 source=(http://linmodems.technion.ac.il/packages/smartlink/$name-$version.tar.gz \
 		$name.patch slmodemd)
@@ -12,7 +12,7 @@ source=(http://linmodems.technion.ac.il/packages/smartlink/$name-$version.tar.gz
 build() {
 	cd $name-$version
 	patch -p1 -i $SRC/$name.patch
-	make
+	make SUPPORT_ALSA=1
 	make DESTDIR=$PKG install
 	mkdir -p $PKG/etc/rc.d
 	install -m 755 $SRC/slmodemd $PKG/etc/rc.d/
