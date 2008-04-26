@@ -6,7 +6,7 @@
 
 name=nginx
 version=0.5.35
-release=1
+release=2
 source=(http://sysoev.ru/$name/$name-$version.tar.gz \
 		$name-destdir.patch \
 		$name.conf \
@@ -55,4 +55,5 @@ build() {
 	find $PKG/usr/lib/perl5 -name .packlist -exec rm {} \;
 	find $PKG/usr/lib/perl5 -name perllocal.pod -exec rm {} \;
 	find $PKG/usr/lib/perl5 -depth -type d -empty -exec rm -rf {} \;
+	find $PKG/usr/lib/perl5 -name "*.bs" -exec rm {} \;
 }
