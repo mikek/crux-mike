@@ -6,8 +6,8 @@ drwxr-xr-x	root/root	usr/include/libkexiv2/
 -rw-r--r--	root/root	usr/include/libkexiv2/version.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libkexiv2.la
-lrwxrwxrwx	root/root	usr/lib/libkexiv2.so -> libkexiv2.so.3.0.0
-lrwxrwxrwx	root/root	usr/lib/libkexiv2.so.3 -> libkexiv2.so.3.0.0
--rwxr-xr-x	root/root	usr/lib/libkexiv2.so.3.0.0
+lrwxrwxrwx	root/root	usr/lib/libkexiv2.so -> libkexiv2.so.3.1.0
+lrwxrwxrwx	root/root	usr/lib/libkexiv2.so.3 -> libkexiv2.so.3.1.0
+-rwxr-xr-x	root/root	usr/lib/libkexiv2.so.3.1.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libkexiv2.pc
