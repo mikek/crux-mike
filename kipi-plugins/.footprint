@@ -7,6 +7,8 @@ drwxr-xr-x	root/root	usr/lib/kde3/
 -rwxr-xr-x	root/root	usr/lib/kde3/kipiplugin_acquireimages.so
 -rwxr-xr-x	root/root	usr/lib/kde3/kipiplugin_batchprocessimages.la
 -rwxr-xr-x	root/root	usr/lib/kde3/kipiplugin_batchprocessimages.so
+-rwxr-xr-x	root/root	usr/lib/kde3/kipiplugin_calendar.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kipiplugin_calendar.so
 -rwxr-xr-x	root/root	usr/lib/kde3/kipiplugin_cdarchiving.la
 -rwxr-xr-x	root/root	usr/lib/kde3/kipiplugin_cdarchiving.so
 -rwxr-xr-x	root/root	usr/lib/kde3/kipiplugin_findimages.la
@@ -267,6 +269,7 @@ drwxr-xr-x	root/root	usr/share/locale/en_GB/LC_MESSAGES/
 drwxr-xr-x	root/root	usr/share/services/
 -rw-r--r--	root/root	usr/share/services/kipiplugin_acquireimages.desktop
 -rw-r--r--	root/root	usr/share/services/kipiplugin_batchprocessimages.desktop
+-rw-r--r--	root/root	usr/share/services/kipiplugin_calendar.desktop
 -rw-r--r--	root/root	usr/share/services/kipiplugin_cdarchiving.desktop
 -rw-r--r--	root/root	usr/share/services/kipiplugin_findimages.desktop
 -rw-r--r--	root/root	usr/share/services/kipiplugin_flickrexport.desktop
