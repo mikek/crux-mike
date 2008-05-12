@@ -6,7 +6,7 @@
 # juergen dot daubert at t-online dot de's ports were templates
 
 name=mysql
-version=5.0.51
+version=5.0.51b
 release=1
 source=(http://mirror.switch.ch/mirror/mysql/Downloads/MySQL-5.0/$name-$version.tar.gz \
 		my.cnf mysqld)
