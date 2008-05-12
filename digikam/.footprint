@@ -53,6 +53,7 @@ drwxr-xr-x	root/root	usr/include/digikam/
 -rw-r--r--	root/root	usr/include/digikam/paniconwidget.h
 -rw-r--r--	root/root	usr/include/digikam/photoinfocontainer.h
 -rw-r--r--	root/root	usr/include/digikam/previewwidget.h
+-rw-r--r--	root/root	usr/include/digikam/rawcameradlg.h
 -rw-r--r--	root/root	usr/include/digikam/searchtextbar.h
 -rw-r--r--	root/root	usr/include/digikam/sidebar.h
 -rw-r--r--	root/root	usr/include/digikam/squeezedcombobox.h
@@ -171,6 +172,7 @@ drwxr-xr-x	root/root	usr/share/apps/digikam/about/
 -rw-r--r--	root/root	usr/share/apps/digikam/about/top-middle.png
 -rw-r--r--	root/root	usr/share/apps/digikam/about/top-right-digikam.png
 drwxr-xr-x	root/root	usr/share/apps/digikam/data/
+-rw-r--r--	root/root	usr/share/apps/digikam/data/banner-digikam.png
 -rw-r--r--	root/root	usr/share/apps/digikam/data/bluejean-texture.png
 -rw-r--r--	root/root	usr/share/apps/digikam/data/bothhorz.png
 -rw-r--r--	root/root	usr/share/apps/digikam/data/bothvert.png
@@ -203,7 +205,6 @@ drwxr-xr-x	root/root	usr/share/apps/digikam/data/
 -rw-r--r--	root/root	usr/share/apps/digikam/data/indicator-red.png
 -rw-r--r--	root/root	usr/share/apps/digikam/data/leaf-pattern.png
 -rw-r--r--	root/root	usr/share/apps/digikam/data/logo-cimg.png
--rw-r--r--	root/root	usr/share/apps/digikam/data/logo-digikam.png
 -rw-r--r--	root/root	usr/share/apps/digikam/data/logo-exiv2.png
 -rw-r--r--	root/root	usr/share/apps/digikam/data/logo-gphoto.png
 -rw-r--r--	root/root	usr/share/apps/digikam/data/logo-lcms.png
