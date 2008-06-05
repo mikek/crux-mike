@@ -1,7 +1,7 @@
 # Description: A benchmark tool for measuring web server performance
 # URL: http://www.hpl.hp.com/personal/David_Mosberger/httperf.html
 # Maintainer: Mikhail Kolesnik, mike at openbunker dot org
-# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri, ycrux at club-internet dot fr
 # Depends on: 
 
 name=httperf
