@@ -1,0 +1,25 @@
+# Description: Matt's traceroute - network diagnostic tool
+# URL: http://www.bitwizard.nl/mtr/
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Depends on:
+
+name=mtr
+version=0.73
+release=1
+source=(ftp://ftp.bitwizard.nl/mtr/$name-$version.tar.gz \
+		$name-$version-CVE-2008-2357.patch \
+		$name-$version-am_path_gtk.patch)
+
+build() {
+	cd $name-$version
+	patch -p1 -i $SRC/$name-$version-CVE-2008-2357.patch
+	patch -p1 -i $SRC/$name-$version-am_path_gtk.patch
+	autoconf
+	aclocal
+	automake
+	./configure --prefix=/usr \
+				--mandir=/usr/man \
+				--without-gtk
+	make
+	make DESTDIR=$PKG install
+}
