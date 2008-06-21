@@ -5,8 +5,8 @@
 # Depends on: libkexif exiv2 libkipi libgphoto2 imlib2
 
 name=kipi-plugins
-version=0.1.5
-release=2
+version=0.1.6-beta1
+release=1
 source=(http://dl.sourceforge.net/sourceforge/kipi/$name-$version.tar.bz2)
 
 build() {
