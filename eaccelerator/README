@@ -1,0 +1,14 @@
+README for eaccelerator
+
+REQUIREMENTS
+
+PRE-INSTALL
+
+POST-INSTALL
+
+PRECAUTION
+
+A configuration file would be installed in 
+/etc/php/conf.d/eaccelerator.ini
+
+Be sure to read http://www.eaccelerator.net/wiki/InstallFromSource

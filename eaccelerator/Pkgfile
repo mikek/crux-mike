@@ -1,0 +1,29 @@
+# Description: A free, open-source PHP accelerator, optimizer, and dynamic content cache
+# URL: http://www.eaccelerator.net/
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Packager: Jose V Beneyto, sepen at users dot sourceforge dot net
+# Depends on: php re2c
+
+name=eaccelerator
+version=0.9.5.3
+release=1
+source=(http://bart.$name.net/source/${version}/$name-${version}.tar.bz2 \
+		$name.ini)
+
+build() {
+	cd $name-${version}
+	phpize
+	./configure --prefix=/usr \
+				--with-$name-shared-memory \
+				--with-$name-sessions \
+				--with-$name-encoder \
+				--with-$name-content-caching \
+				--with-$name-disassembler
+	make
+	mkdir -p $PKG/var/cache/$name
+	mkdir -p $PKG/usr/lib/php/extensions
+	mkdir -p $PKG/etc/php/conf.d
+	chown daemon:daemon $PKG/var/cache/$name
+	install -m 755 modules/$name.so $PKG/usr/lib/php/extensions/$name.so
+	install -m 644 $SRC/$name.ini $PKG/etc/php/conf.d/$name.ini
+}
