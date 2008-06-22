@@ -1,27 +1,105 @@
 #!/bin/bash
+#
+# /etc/rc.d/nginx
+#
+# Adopted from Fedora Core
 
-# adopted from ArchLinux port: http://aur.archlinux.org/packages/nginx/nginx/
 
-case "$1" in
-start)
-	echo "Starting Nginx"
-	if [ -s /var/run/nginx.pid ]; then
+LOCKFILE=/var/lock/nginx.lock
+PIDFILE=/var/run/nginx.pid
+RETVAL=0
+MAXOPENFILES=16384
+
+nginx=/usr/bin/nginx
+
+start()
+{
+	if [ -s $PIDFILE ]; then
 		echo "Nginx is already running"
 		exit 1
 	fi
+
+	# nginx can work with many files at one time
+	ulimit -n $MAXOPENFILES
+
 	/usr/bin/nginx &>/dev/null
-	exit $?
+	RETVAL=$?
+}
+
+stop() {
+	kill -QUIT `cat $PIDFILE` &>/dev/null
+	RETVAL=$?
+}
+
+restart()
+{
+	stop
+	sleep 1
+	start
+	RETVAL=$?
+}
+
+reload() {
+	kill -HUP `cat $PIDFILE`
+	RETVAL=$?
+}
+
+testconfig()
+{
+    nginx -t
+    RETVAL=$?
+}
+
+# this is not enabled; requires more testing
+upgrade()
+{
+    testconfig
+    RETVAL=$?
+    if [ $RETVAL -eq 0 ]; then
+		echo -n $"Sending USR2 signal to upgrade nginx "
+		kill -USR2 `cat $PIDFILE`
+		RETVAL=$?
+		echo
+    else
+		RETVAL=1
+	fi
+}
+
+rotate() {
+	echo -n $"Sending USR1 signal to rotate logs "
+	kill -USR1 `cat $PIDFILE`
+	echo
+	RETVAL=$?
+}
+
+case "$1" in
+start)
+	testconfig
+	RETVAL=$?
+	[ $RETVAL -eq 0 ] && start
 ;;
 stop)
-	echo "Stopping Nginx"
-	kill -QUIT `cat /var/run/nginx.pid` &>/dev/null
-	exit $?
+	stop
+;;
+reload)
+	testconfig
+	RETVAL=$?
+	[ $RETVAL -eq 0 ] && reload
 ;;
 restart)
-	$0 stop
-	sleep 1
-	$0 start
+	restart
+;;
+rotate)
+	rotate
+	RETVAL=$?
+;;
+testconfig)
+	testconfig
+	RETVAL=$?
 ;;
 *)
-	echo "usage: $0 {start|stop|restart}"  
+	echo $"Usage: $prog {start|stop|reload|restart|rotate|testconfig}"
+	RETVAL=1
 esac
+
+exit $RETVAL

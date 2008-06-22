@@ -37,3 +37,6 @@ drwxr-xr-x	root/root	var/log/nginx/
 drwxr-xr-x	root/root	var/run/
 drwxr-xr-x	root/root	var/spool/
 drwxr-xr-x	root/root	var/spool/nginx/
+drwx------	nginx/root	var/spool/nginx/client_body_temp/
+drwx------	nginx/root	var/spool/nginx/fastcgi_temp/
+drwx------	nginx/root	var/spool/nginx/proxy_temp/

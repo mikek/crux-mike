@@ -5,7 +5,7 @@
 # Depends on: perl libpcre openssl
 
 name=nginx
-version=0.5.36
+version=0.6.31
 release=1
 source=(http://sysoev.ru/$name/$name-$version.tar.gz \
 		$name-destdir.patch \
@@ -13,9 +13,8 @@ source=(http://sysoev.ru/$name/$name-$version.tar.gz \
 		$name)
 
 build() {
-	mkdir -p $PKG/var/spool/$name
 	cd $name-$version
-	(cd auto && patch -p0 -i $SRC/$name-destdir.patch)
+	patch -d auto -i $SRC/$name-destdir.patch
 
 	./configure --prefix=/srv/www/$name \
 				--sbin-path=/usr/bin/$name \
@@ -31,6 +30,7 @@ build() {
 				--user=$name \
 				--group=$name \
 				--with-zlib-asm=pentiumpro \
+				--with-http_gzip_static_module \
 				--with-http_ssl_module \
 				--with-http_realip_module \
 				--with-http_addition_module \
@@ -45,12 +45,17 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	mkdir -p $PKG/var/spool/$name
+	mkdir -p $PKG/var/spool/$name/{client_body_temp,fastcgi_temp,proxy_temp}
+	chown $name:0 $PKG/var/spool/$name/{client_body_temp,fastcgi_temp,proxy_temp}
+	chmod 700 $PKG/var/spool/$name/{client_body_temp,fastcgi_temp,proxy_temp}
+	
 	touch $PKG/var/log/$name/access.log
 	touch $PKG/var/log/$name/error.log
 	
 	install -m 644 $SRC/$name.conf $PKG/etc/$name/$name.conf
 	install -D -m 755 $SRC/$name $PKG/etc/rc.d/$name
+	
+	rm -f $PKG/etc/$name/*.default
 	
 	find $PKG/usr/lib/perl5 -name .packlist -exec rm {} \;
 	find $PKG/usr/lib/perl5 -name perllocal.pod -exec rm {} \;

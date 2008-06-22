@@ -1,4 +1,4 @@
-4df4a5cdbc7a99b78137d946f26040e0  nginx
-1b5b6fca369843ac74cf6123a50d4cb1  nginx-0.5.36.tar.gz
-cc38b14b8aa2b58c6baa4495d67f8948  nginx-destdir.patch
-29d520dd666e392c69a2ceaac3b24aaf  nginx.conf
+054364b895d8c39c63734cd1ef077bed  nginx
+824bcc25bbd5b636f182237b69227bd2  nginx-0.6.31.tar.gz
+c9294b6d3ca7c7bf81b931724d792522  nginx-destdir.patch
+784c39285c3d6d008205b62b27c02db0  nginx.conf
