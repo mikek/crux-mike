@@ -9,6 +9,7 @@ POST-INSTALL
 PRECAUTION
 
 A configuration file would be installed in 
-/etc/php/conf.d/eaccelerator.ini
+/etc/php/conf.d/eaccelerator.ini. Be sure to adjust permissions and
+location of 'eaccelerator.cache_dir'.
 
-Be sure to read http://www.eaccelerator.net/wiki/InstallFromSource
+See http://www.eaccelerator.net/wiki/InstallFromSource for details.
