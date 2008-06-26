@@ -7,7 +7,7 @@
 
 name=mysql
 version=5.0.51b
-release=1
+release=2
 source=(http://mirror.switch.ch/mirror/mysql/Downloads/MySQL-5.0/$name-$version.tar.gz \
 		my.cnf mysqld)
 
@@ -33,9 +33,8 @@ build () {
 	rm $PKG/usr/share/mysql/charsets/README
 	find $PKG/usr/share/mysql/* -prune -type f ! -regex '.*\(cnf\|sql\)$' | xargs rm -f {} \;
 	find $PKG/usr/share/mysql/* -type d ! -name english ! -name charsets | xargs rm -rf {} \;
-	mkdir -p $PKG/{var/log,var/run,srv/db}
-	touch mysqld.log
-	install -m 600 -o daemon -g daemon mysqld.log $PKG/var/log
+	mkdir -p $PKG/{var/log/mysql,var/run,srv/db}
+	chown daemon:daemon $PKG/var/log/mysql
 	install -d -m 700 -o daemon -g daemon $PKG/srv/db/mysql
 	install -D -m 755 $SRC/mysqld $PKG/etc/rc.d/mysqld
 	install -m 600 $SRC/my.cnf $PKG/etc

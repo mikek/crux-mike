@@ -204,5 +204,5 @@ drwxr-xr-x	root/root	usr/share/mysql/english/
 -rw-r--r--	root/root	usr/share/mysql/mysql_test_data_timezone.sql
 drwxr-xr-x	root/root	var/
 drwxr-xr-x	root/root	var/log/
--rw-------	daemon/daemon	var/log/mysqld.log (EMPTY)
+drwxr-xr-x	daemon/daemon	var/log/mysql/
 drwxr-xr-x	root/root	var/run/

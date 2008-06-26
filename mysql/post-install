@@ -41,7 +41,7 @@ if [ -z `getent passwd | gawk -F: '{ print $1 }' | grep ^$ADD_USER$` ]; then
 fi
 
 # additional
-chown $ADD_USER:$ADD_GROUP /var/log/mysqld.log
+chown -R $ADD_USER:$ADD_GROUP /var/log/mysql
 chown -R $ADD_USER:$ADD_GROUP /srv/db/mysql
 sed -i s/"\=\ daemon"/"\=\ $ADD_USER"/  /etc/my.cnf
 
