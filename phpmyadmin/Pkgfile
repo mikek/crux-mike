@@ -1,11 +1,11 @@
 # Description: PHP tool to handle the administration of MySQL over the WWW
 # URL: http://www.phpmyadmin.net/
 # Maintainer: Mikhail Kolesnik, mike at openbunker dot org
-# Packager: Jürgen Daubert, juergen dot daubert at t-online dot de
+# Packager: Juergen Daubert, juergen dot daubert at t-online dot de
 # Depends on: mod_php
 
 name=phpmyadmin
-version=2.11.6
+version=2.11.7
 release=1
 source=(http://dl.sourceforge.net/sourceforge/$name/phpMyAdmin-$version-english.tar.bz2)
 
