@@ -1,12 +1,6 @@
 drwxr-xr-x	root/root	etc/
 drwxr-xr-x	root/root	etc/rc.d/
 -rwxr-xr-x	root/root	etc/rc.d/slmodemd
-drwxr-xr-x	root/root	lib/
-drwxr-xr-x	root/root	lib/modules/
-drwxr-xr-x	root/root	lib/modules/<kernel-version>/
-drwxr-xr-x	root/root	lib/modules/<kernel-version>/extra/
--rw-r--r--	root/root	lib/modules/<kernel-version>/extra/slamr.ko
--rw-r--r--	root/root	lib/modules/<kernel-version>/extra/slusb.ko
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/sbin/
 -rwxr-xr-x	root/root	usr/sbin/slmodemd
