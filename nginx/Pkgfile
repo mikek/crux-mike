@@ -5,17 +5,14 @@
 # Depends on: perl libpcre openssl
 
 name=nginx
-version=0.6.31
+version=0.6.32
 release=1
 source=(http://sysoev.ru/$name/$name-$version.tar.gz \
-		$name-destdir.patch \
 		$name.conf \
 		$name)
 
 build() {
 	cd $name-$version
-	patch -d auto -i $SRC/$name-destdir.patch
-
 	./configure --prefix=/srv/www/$name \
 				--sbin-path=/usr/bin/$name \
 				--conf-path=/etc/$name/$name.conf \
