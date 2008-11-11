@@ -4,9 +4,9 @@
 # Depends on: gtk sdl_ttf
 
 name=mupen64plus
-version=1.4
+version=1.4.1
 release=1
-source=(http://mupen64plus.googlecode.com/files/Mupen64Plus-${version/./-}-src.zip)
+source=(http://mupen64plus.googlecode.com/files/Mupen64Plus-${version//./-}-src.zip)
 
 build() {
 	cd Mupen64Plus-*
