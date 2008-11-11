@@ -4,19 +4,12 @@
 # Depends on:
 
 name=mtr
-version=0.73
-release=2
-source=(ftp://ftp.bitwizard.nl/mtr/$name-$version.tar.gz \
-		$name-$version-CVE-2008-2357.patch \
-		$name-$version-am_path_gtk.patch)
+version=0.75
+release=1
+source=(ftp://ftp.bitwizard.nl/mtr/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
-	patch -p1 -i $SRC/$name-$version-CVE-2008-2357.patch
-	patch -p1 -i $SRC/$name-$version-am_path_gtk.patch
-	autoconf
-	aclocal
-	automake
 	./configure --prefix=/usr \
 				--mandir=/usr/man \
 				--sbindir=/usr/bin \
