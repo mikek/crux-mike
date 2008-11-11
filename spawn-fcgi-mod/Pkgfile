@@ -4,8 +4,8 @@
 # Depends on: php-fcgi
 
 name=spawn-fcgi-mod
-version=1.4.19
-release=2
+version=1.4.20
+release=1
 source=(http://www.lighttpd.net/download/lighttpd-$version.tar.gz
 	$name.rc $name.conf
 	$name-limits.diff)
