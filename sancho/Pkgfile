@@ -4,12 +4,13 @@
 # Depends on: jre gtk mldonkey
 
 name=sancho
-version=0.9.4-58
+version=0.9.4-59
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version-linux-gtk.sh
+#source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version-linux-gtk.sh
+source=(http://repository.slacky.eu/slackware-12.1/network/$name/$version/src/$name-$version-linux-gtk.sh
 		sancho.sh)
 
-build () {
+build() {
 	/bin/sh $name-$version-linux-gtk.sh --target .
 	mkdir -p $PKG/usr/{bin,lib/sancho}
 	mv $name $PKG/usr/lib/$name
