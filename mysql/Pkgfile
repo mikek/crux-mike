@@ -1,13 +1,13 @@
 # Description: SQL database server
 # URL: http://www.mysql.com
 # Maintainer: Mikhail Kolesnik, mike at openbunker dot org
-# Depends on: ncurses zlib openssl
+# Depends on: ncurses zlib openssl readline
 
 # juergen dot daubert at t-online dot de's ports were templates
 
 name=mysql
-version=5.0.51b
-release=2
+version=5.0.67
+release=1
 source=(http://mirror.switch.ch/mirror/mysql/Downloads/MySQL-5.0/$name-$version.tar.gz \
 		my.cnf mysqld)
 
@@ -25,6 +25,7 @@ build () {
 				--without-debug \
 				--without-docs \
 				--without-bench \
+				--without-readline \
 				--with-openssl
 	make
 	make DESTDIR=$PKG install
