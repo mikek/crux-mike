@@ -1,8 +1,5 @@
-7e27e535c2d267637df34898f1b91707  MPlayer-1.0rc2.tar.bz2
 9637df0e91703179f0723ec095a36cb5  arial32.exe
 dc421a690648b503265c82ade84e143e  cabextract-1.2.tar.gz
-320af7daa1b248ee8e8c15d34d7923e3  demux_audio_fix_20080129.diff
-ce999929155f509a3e6bee41d9d613ed  demux_mov_fix_20080129.diff
+a89d92b09b3d27ffa9f808383bb614dc  mplayer-1.0_rc2_p28058.tar.bz2
+cf872f80e9bfdf046f1519623cdc1d3b  mplayer-x264.patch
 cdd5f311f29d89c2bdee6746d983ed76  mplayer.conf
-c7d1bcdd61fcceb7598d61fe2213c587  stream_cddb_fix_20080120.diff
-6a2c124586e1e6c44ae4ca1b4be9b6e4  url_fix_20080120.diff
