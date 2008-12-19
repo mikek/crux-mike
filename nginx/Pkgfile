@@ -6,7 +6,7 @@
 
 name=nginx
 version=0.6.34
-release=1
+release=2
 source=(http://sysoev.ru/$name/$name-$version.tar.gz \
 		$name.conf \
 		$name)
