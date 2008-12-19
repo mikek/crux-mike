@@ -5,7 +5,7 @@
 
 name=p5-pgpp
 version=0.05
-release=2
+release=3
 source=(http://search.cpan.org/CPAN/authors/id/A/AR/ARC/DBD-PgPP-$version.tar.gz)
 
 build () {
