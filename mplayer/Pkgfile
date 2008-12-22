@@ -9,19 +9,16 @@
 
 name=mplayer
 version=1.0_rc2_p28058
-release=1
+release=2
 source=(http://distfiles.gentoo.org/distfiles/$name-$version.tar.bz2 \
 		http://www.cabextract.org.uk/cabextract-1.2.tar.gz \
 		http://dl.sourceforge.net/sourceforge/corefonts/arial32.exe \
-		mplayer.conf \
-		$name-x264.patch)
+		mplayer.conf)
 
 build() {
 	(cd cabextract-1.2 && ./configure && make)
 	cabextract-1.2/cabextract --lowercase arial32.exe
 	cd $name-$version
-
-	patch -p1 -i $SRC/$name-x264.patch
 	
 	# mplayer decides optimizations at configure time
 	unset CFLAGS
