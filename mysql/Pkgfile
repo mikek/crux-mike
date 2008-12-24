@@ -6,7 +6,7 @@
 # juergen dot daubert at t-online dot de's ports were templates
 
 name=mysql
-version=5.0.67
+version=5.0.75
 release=1
 source=(http://mirror.switch.ch/mirror/mysql/Downloads/MySQL-5.0/$name-$version.tar.gz \
 		my.cnf mysqld)
@@ -39,4 +39,7 @@ build () {
 	install -d -m 700 -o daemon -g daemon $PKG/srv/db/mysql
 	install -D -m 755 $SRC/mysqld $PKG/etc/rc.d/mysqld
 	install -m 600 $SRC/my.cnf $PKG/etc
+	
+	install -d $PKG/etc/ld.so.conf.d
+	echo "/usr/lib/mysql" > $PKG/etc/ld.so.conf.d/mysql.conf
 }
