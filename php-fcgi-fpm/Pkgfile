@@ -4,9 +4,9 @@
 # Depends on: libxml2
 
 name=php-fcgi-fpm
-php_ver=5.2.6
-fpm_ver=0.5.9
-version=5.2.6-0.5.9
+php_ver=5.2.8
+fpm_ver=0.5.10
+version=5.2.8-0.5.10
 release=1
 source=(http://www.php.net/distributions/php-$php_ver.tar.bz2 \
 		http://php-fpm.anight.org/downloads/head/php-$php_ver-fpm-$fpm_ver.diff.gz \
