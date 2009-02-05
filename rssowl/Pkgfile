@@ -4,9 +4,10 @@
 # Depends on: gtk jre
 
 name=rssowl
-version=2.0-M8a
+version=2.0-M9-RC1
 release=1
-source=(http://dl.sourceforge.net/rssowl/$name-$version.linux.gtk.x86.zip
+#source=(http://dl.sourceforge.net/rssowl/$name-$version.linux.gtk.x86.zip \
+source=(http://www.rssowl.org/dl/rssowl-2_0/$name-$version.linux.gtk.x86.zip \
 		$name.sh)
 
 build () {
