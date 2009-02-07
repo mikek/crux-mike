@@ -1,0 +1,18 @@
+# Description: A fast paced, arcade-style, top-scrolling space shooter
+# URL: http://chromium-bsu.sourceforge.net/
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Depends on: sdl_mixer ftgl freealut glpng
+
+name=chromium-bsu
+version=0.9.13.3
+release=1
+source=(http://dl.sourceforge.net/$name/chromium-$version.tar.gz)
+
+build() {
+	cd chromium-$version
+	./configure --prefix=/usr --disable-nls \
+				--mandir=/usr/man
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share/doc
+}
