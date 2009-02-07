@@ -1,0 +1,25 @@
+# Description: PNG loader for OpenGL
+# URL: http://www.wyatt100.freeserve.co.uk/download.htm
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Depends on: zlib libpng mesa3d
+
+name=glpng
+version=git
+release=1
+source=()
+
+build() {
+	cd $PKGMK_SOURCE_DIR
+	if cd $name ; then
+		git pull
+	else
+		git clone git://repo.or.cz/glpng.git $name
+		cd $name
+	fi
+	cp -r . $SRC/$name
+	cd $SRC/$name
+	cmake -DCMAKE_INSTALL_PREFIX=$PKG/usr .
+	make
+	(cd src && ln -s libglpng.so.1 libglpng.so)
+	make install
+}
