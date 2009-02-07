@@ -1,0 +1,26 @@
+# Description: Video Editor
+# URL: http://fixounet.free.fr/avidemux/
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Packager: Brett Goulder, predatorfreak at dcaf-security dot org
+# Depends on: cmake gtk libmad libvorbis lame faac liba52 libxvid x264
+
+name=avidemux
+version=2.4-current
+release=1
+
+build()
+{
+	cd $PKGMK_SOURCE_DIR
+	if cd $name ; then
+	svn update
+	else
+		svn checkout svn://svn.berlios.de/avidemux/branches/avidemux_2.4_branch/ $name
+		cd $name
+	fi
+	cp -r . $SRC/$name
+	cd $SRC/$name
+	cmake -DCMAKE_INSTALL_PREFIX=$PKG/usr -DMANSUBDIR=man .
+	make install
+	rm -rf $PKG/usr/share
+	rm -rf $PKG/usr/bin/i18n
+}
