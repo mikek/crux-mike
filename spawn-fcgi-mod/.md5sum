@@ -1,4 +1,4 @@
-7ce7eefb487682b61d9b06b41864c64a  lighttpd-1.4.20.tar.gz
+5ff4e7075652f6cc200fa278ea2b1f96  lighttpd-1.4.21.tar.gz
 3f03e48408e4cd8f5fab97c4a5527fda  spawn-fcgi-mod-limits.diff
-92e0c4763ce48ba6d110b111fbdabe6d  spawn-fcgi-mod.conf
-8e8f334f903eab91ad1da3bb795bb9cb  spawn-fcgi-mod.rc
+4a0426f27d0192762b1a9686245273c5  spawn-fcgi-mod.conf
+5a31ee7ded6bb0f57124c4185cccc359  spawn-fcgi-mod.rc
