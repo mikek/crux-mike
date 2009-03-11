@@ -4,13 +4,12 @@
 # Depends on: gtk jre
 
 name=rssowl
-version=2.0-M9-RC1
+version=2.0-M9
 release=1
-#source=(http://dl.sourceforge.net/rssowl/$name-$version.linux.gtk.x86.zip \
-source=(http://www.rssowl.org/dl/rssowl-2_0/$name-$version.linux.gtk.x86.zip \
+source=(http://dl.sourceforge.net/rssowl/$name-$version.linux.gtk.x86.zip \
 		$name.sh)
 
-build () {
+build() {
 	mkdir -p $PKG/usr/lib
 	cp -rf $SRC/$name $PKG/usr/lib
 	install -D -m 755 $SRC/$name.sh $PKG/usr/bin/$name
