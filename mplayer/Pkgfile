@@ -8,8 +8,8 @@
 # aalib, win32-essential-codecs, libdv, faac, x264, openal, directfb
 
 name=mplayer
-version=1.0_rc2_p28058
-release=3
+version=1.0_rc2_p28450
+release=1
 source=(http://distfiles.gentoo.org/distfiles/$name-$version.tar.bz2 \
 		http://www.cabextract.org.uk/cabextract-1.2.tar.gz \
 		http://dl.sourceforge.net/sourceforge/corefonts/arial32.exe \
