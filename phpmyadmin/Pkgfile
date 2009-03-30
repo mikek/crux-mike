@@ -2,10 +2,10 @@
 # URL: http://www.phpmyadmin.net/
 # Maintainer: Mikhail Kolesnik, mike at openbunker dot org
 # Packager: Juergen Daubert, juergen dot daubert at t-online dot de
-# Depends on: mod_php
+# Depends on: 
 
 name=phpmyadmin
-version=2.11.9.4
+version=2.11.9.5
 release=1
 source=(http://dl.sourceforge.net/sourceforge/$name/phpMyAdmin-$version-english.tar.bz2)
 

@@ -1,15 +1,16 @@
 README for phpmyadmin 2.11.x
 
 REQUIREMENTS
-
+	You'll need mod_php or php-fcgi port dependig on webserver 
+	choice.
 PRE-INSTALL
 
 POST-INSTALL
 
-   Add the following directives to httpd.conf:
+   To use php with Aapache add the following directives to 
+   httpd.conf:
    
    LoadModule php5_module lib/apache/libphp5.so
    AddType application/x-httpd-php .php
 
 PRECAUTION
-
