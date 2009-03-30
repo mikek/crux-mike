@@ -5,8 +5,8 @@
 # Depends on: perl libpcre openssl
 
 name=nginx
-version=0.6.34
-release=2
+version=0.6.35
+release=1
 source=(http://sysoev.ru/$name/$name-$version.tar.gz \
 		$name.conf \
 		$name)
