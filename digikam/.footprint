@@ -10,7 +10,6 @@ drwxr-xr-x	root/root	usr/include/digikam/
 -rw-r--r--	root/root	usr/include/digikam/cietonguewidget.h
 -rw-r--r--	root/root	usr/include/digikam/colorgradientwidget.h
 -rw-r--r--	root/root	usr/include/digikam/colormodifier.h
--rw-r--r--	root/root	usr/include/digikam/ctrlpaneldlg.h
 -rw-r--r--	root/root	usr/include/digikam/curveswidget.h
 -rw-r--r--	root/root	usr/include/digikam/dcolor.h
 -rw-r--r--	root/root	usr/include/digikam/dcolorblend.h
@@ -38,14 +37,12 @@ drwxr-xr-x	root/root	usr/include/digikam/
 -rw-r--r--	root/root	usr/include/digikam/icctransform.h
 -rw-r--r--	root/root	usr/include/digikam/imagecurves.h
 -rw-r--r--	root/root	usr/include/digikam/imagedialog.h
--rw-r--r--	root/root	usr/include/digikam/imagedlgbase.h
--rw-r--r--	root/root	usr/include/digikam/imageguidedlg.h
 -rw-r--r--	root/root	usr/include/digikam/imageguidewidget.h
 -rw-r--r--	root/root	usr/include/digikam/imagehistogram.h
 -rw-r--r--	root/root	usr/include/digikam/imageiface.h
 -rw-r--r--	root/root	usr/include/digikam/imagelevels.h
+-rw-r--r--	root/root	usr/include/digikam/imagepanelwidget.h
 -rw-r--r--	root/root	usr/include/digikam/imagepaniconwidget.h
--rw-r--r--	root/root	usr/include/digikam/imagepannelwidget.h
 -rw-r--r--	root/root	usr/include/digikam/imageplugin.h
 -rw-r--r--	root/root	usr/include/digikam/imageregionwidget.h
 -rw-r--r--	root/root	usr/include/digikam/imagewidget.h
@@ -719,6 +716,7 @@ drwxr-xr-x	root/root	usr/share/apps/digikam/themes/
 -rw-r--r--	root/root	usr/share/apps/digikam/themes/Clean
 -rw-r--r--	root/root	usr/share/apps/digikam/themes/DLR
 -rw-r--r--	root/root	usr/share/apps/digikam/themes/Dark
+-rw-r--r--	root/root	usr/share/apps/digikam/themes/DarkRoom
 -rw-r--r--	root/root	usr/share/apps/digikam/themes/Dessert
 -rw-r--r--	root/root	usr/share/apps/digikam/themes/Digikasa
 -rw-r--r--	root/root	usr/share/apps/digikam/themes/Dreary
