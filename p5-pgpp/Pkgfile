@@ -4,8 +4,8 @@
 # Depends on: p5-dbi
 
 name=p5-pgpp
-version=0.05
-release=3
+version=0.06
+release=1
 source=(http://search.cpan.org/CPAN/authors/id/A/AR/ARC/DBD-PgPP-$version.tar.gz)
 
 build () {
