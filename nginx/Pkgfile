@@ -5,7 +5,7 @@
 # Depends on: perl libpcre openssl
 
 name=nginx
-version=0.6.35
+version=0.6.36
 release=1
 source=(http://sysoev.ru/$name/$name-$version.tar.gz \
 		$name.conf \
@@ -26,6 +26,7 @@ build() {
 				--error-log-path=/var/log/$name/error.log \
 				--user=$name \
 				--group=$name \
+				--with-pcre \
 				--with-zlib-asm=pentiumpro \
 				--with-http_gzip_static_module \
 				--with-http_ssl_module \
