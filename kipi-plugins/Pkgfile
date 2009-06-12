@@ -2,7 +2,7 @@
 # URL: http://extragear.kde.org/apps/kipi
 # Maintainer: Mikhail Kolesnik, mike at openbunker dot org
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: libkexif exiv2 libkipi libgphoto2 imlib2
+# Depends on: libkexif libkipi libgphoto2 imlib2 libkexiv2
 
 name=kipi-plugins
 version=0.1.6
