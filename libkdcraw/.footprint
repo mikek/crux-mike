@@ -12,9 +12,9 @@ drwxr-xr-x	root/root	usr/include/libkdcraw/
 -rw-r--r--	root/root	usr/include/libkdcraw/version.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libkdcraw.la
-lrwxrwxrwx	root/root	usr/lib/libkdcraw.so -> libkdcraw.so.4.0.2
-lrwxrwxrwx	root/root	usr/lib/libkdcraw.so.4 -> libkdcraw.so.4.0.2
--rwxr-xr-x	root/root	usr/lib/libkdcraw.so.4.0.2
+lrwxrwxrwx	root/root	usr/lib/libkdcraw.so -> libkdcraw.so.4.0.3
+lrwxrwxrwx	root/root	usr/lib/libkdcraw.so.4 -> libkdcraw.so.4.0.3
+-rwxr-xr-x	root/root	usr/lib/libkdcraw.so.4.0.3
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libkdcraw.pc
 drwxr-xr-x	root/root	usr/share/
