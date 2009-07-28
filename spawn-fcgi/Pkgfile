@@ -1,0 +1,21 @@
+# Description: Spawns few php-cgi instances (a part of lighttpd)
+# URL: http://www.lighttpd.net/
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Depends on: 
+
+name=spawn-fcgi
+version=1.6.2
+release=1
+source=(http://www.lighttpd.net/download/$name-$version.tar.bz2 \
+		$name-php.rc \
+		$name-php.conf)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr \
+				--mandir=/usr/man
+	make
+	make DESTDIR=$PKG install
+	install -D -m 755 $SRC/$name-php.rc $PKG/etc/rc.d/$name-php
+	install -D -m 644 $SRC/$name-php.conf $PKG/etc/$name-php.conf
+}
