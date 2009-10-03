@@ -10,7 +10,7 @@ ADD_GID=63
 ADD_UID=63
 ADD_USER=mysql
 ADD_USER_HOME=/var/empty
-ADD_USER_SHELL=/bin/bash
+ADD_USER_SHELL=/bin/false
 ADD_GROUP=mysql
 
 ADD_STATUS=0
