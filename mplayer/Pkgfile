@@ -8,27 +8,23 @@
 # aalib, win32-essential-codecs, libdv, faac, x264, openal, directfb
 
 name=mplayer
-version=1.0_rc2_p28450
+version=export-2009-09-19
 release=1
-source=(http://distfiles.gentoo.org/distfiles/$name-$version.tar.bz2 \
+source=(http://crux.nu/~lucas/files/$name-$version.tar.bz2 \
 		http://www.cabextract.org.uk/cabextract-1.2.tar.gz \
 		http://dl.sourceforge.net/sourceforge/corefonts/arial32.exe \
-		mplayer.conf \
-		$name-x264-revision-fixes.patch)
+		mplayer.conf)
 
 build() {
 	(cd cabextract-1.2 && ./configure && make)
 	cabextract-1.2/cabextract --lowercase arial32.exe
 	cd $name-$version
-	
-	patch -p1 -i $SRC/$name-x264-revision-fixes.patch
-	
-	# mplayer decides optimizations at configure time
-	unset CFLAGS
-	echo | ./configure --prefix=/usr \
+
+	export CFLAGS="$(echo $CFLAGS | sed -e 's/-O[s0-3]/-O3/') -ffast-math -fomit-frame-pointer"
+	./configure --prefix=/usr \
 				--mandir=/usr/man \
 				--enable-largefiles \
-				--win32codecsdir=/usr/lib/win32 \
+				--codecsdir=/usr/lib/win32 \
 				--with-freetype-config=/usr/bin/freetype-config \
 				--enable-menu
 	make
@@ -41,11 +37,11 @@ build() {
 	/usr/bin/install -D -m 644 $SRC/arialbd.ttf $PKG/usr/share/mplayer/font/arialbd.ttf
 
 	# configs
-	cp $SRC/mplayer.conf $PKG/usr/etc/mplayer/
+	install -m 644 $SRC/mplayer.conf $PKG/usr/etc/mplayer/mplayer.conf
 	sed -i s/'\#y\ menu\ hide'/'y\ menu\ hide'/ etc/input.conf
-	cp etc/input.conf $PKG/usr/etc/mplayer/
-	cp etc/codecs.conf $PKG/usr/etc/mplayer/
-	cp etc/menu.conf $PKG/usr/etc/mplayer/
+	install -m 644 etc/input.conf $PKG/usr/etc/mplayer/input.conf
+	install -m 644 etc/codecs.conf $PKG/usr/etc/mplayer/codecs.conf
+	install -m 644 etc/menu.conf $PKG/usr/etc/mplayer/menu.conf
 	
 	rmdir $PKG/usr/lib
 }
