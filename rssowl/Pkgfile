@@ -4,9 +4,9 @@
 # Depends on: gtk jre
 
 name=rssowl
-version=2.0-RC1
+version=2.0
 release=1
-source=(http://downloads.sourceforge.net/project/$name/$name%202/2.0%20RC1/$name-$version.linux.zip \
+source=(http://downloads.sourceforge.net/project/$name/$name%202/2.0/$name-$version.linux.zip \
 		$name.sh)
 
 build() {

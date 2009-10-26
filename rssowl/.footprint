@@ -27,8 +27,8 @@ drwxr-xr-x	root/root	usr/lib/rssowl/features/org.eclipse.rcp_3.4.200.R342_v20090
 -rwxr-xr-x	root/root	usr/lib/rssowl/features/org.eclipse.rcp_3.4.200.R342_v20090122-989JESTEbig-SVaL8UJHcYBr4A63/license.html
 drwxr-xr-x	root/root	usr/lib/rssowl/features/org.rssowl.dependencies_2.0.0/
 -rwxr-xr-x	root/root	usr/lib/rssowl/features/org.rssowl.dependencies_2.0.0/feature.xml
-drwxr-xr-x	root/root	usr/lib/rssowl/features/org.rssowl_2.0.0.200909212303/
--rwxr-xr-x	root/root	usr/lib/rssowl/features/org.rssowl_2.0.0.200909212303/feature.xml
+drwxr-xr-x	root/root	usr/lib/rssowl/features/org.rssowl_2.0.0.200910241524/
+-rwxr-xr-x	root/root	usr/lib/rssowl/features/org.rssowl_2.0.0.200910241524/feature.xml
 -rwxr-xr-x	root/root	usr/lib/rssowl/icon.xpm
 -rwxr-xr-x	root/root	usr/lib/rssowl/libcairo-swt.so
 drwxr-xr-x	root/root	usr/lib/rssowl/plugins/
@@ -74,9 +74,9 @@ drwxr-xr-x	root/root	usr/lib/rssowl/plugins/org.eclipse.equinox.launcher.gtk.lin
 -rwxr-xr-x	root/root	usr/lib/rssowl/plugins/org.eclipse.update.core.linux_3.2.1.R34x_v20081024.jar
 -rwxr-xr-x	root/root	usr/lib/rssowl/plugins/org.eclipse.update.core_3.2.202.R34x_v20081128.jar
 -rwxr-xr-x	root/root	usr/lib/rssowl/plugins/org.eclipse.update.ui_3.2.101.R34x_v20081128.jar
--rwxr-xr-x	root/root	usr/lib/rssowl/plugins/org.rssowl.core_2.0.0.200909212303.jar
--rwxr-xr-x	root/root	usr/lib/rssowl/plugins/org.rssowl.lib.db4o_2.0.0.200909212303.jar
--rwxr-xr-x	root/root	usr/lib/rssowl/plugins/org.rssowl.lib.httpclient_2.0.0.200909212303.jar
--rwxr-xr-x	root/root	usr/lib/rssowl/plugins/org.rssowl.lib.jdom_2.0.0.200909212303.jar
--rwxr-xr-x	root/root	usr/lib/rssowl/plugins/org.rssowl.lib.lucene_2.0.0.200909212303.jar
--rwxr-xr-x	root/root	usr/lib/rssowl/plugins/org.rssowl.ui_2.0.0.200909212303.jar
+-rwxr-xr-x	root/root	usr/lib/rssowl/plugins/org.rssowl.core_2.0.0.200910241524.jar
+-rwxr-xr-x	root/root	usr/lib/rssowl/plugins/org.rssowl.lib.db4o_2.0.0.200910241524.jar
+-rwxr-xr-x	root/root	usr/lib/rssowl/plugins/org.rssowl.lib.httpclient_2.0.0.200910241524.jar
+-rwxr-xr-x	root/root	usr/lib/rssowl/plugins/org.rssowl.lib.jdom_2.0.0.200910241524.jar
+-rwxr-xr-x	root/root	usr/lib/rssowl/plugins/org.rssowl.lib.lucene_2.0.0.200910241524.jar
+-rwxr-xr-x	root/root	usr/lib/rssowl/plugins/org.rssowl.ui_2.0.0.200910241524.jar
