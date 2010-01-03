@@ -8,7 +8,7 @@
 # aalib, win32-essential-codecs, libdv, faac, x264, openal, directfb
 
 name=mplayer
-version=export-2009-09-19
+version=export-2009-12-26
 release=1
 source=(http://crux.nu/~lucas/files/$name-$version.tar.bz2 \
 		http://www.cabextract.org.uk/cabextract-1.2.tar.gz \
@@ -23,8 +23,9 @@ build() {
 	export CFLAGS="$(echo $CFLAGS | sed -e 's/-O[s0-3]/-O3/') -ffast-math -fomit-frame-pointer"
 	./configure --prefix=/usr \
 				--mandir=/usr/man \
+				--confdir=/etc \
 				--enable-largefiles \
-				--codecsdir=/usr/lib/win32 \
+				--codecsdir=/usr/share/codecs \
 				--with-freetype-config=/usr/bin/freetype-config \
 				--enable-menu
 	make
@@ -37,11 +38,12 @@ build() {
 	/usr/bin/install -D -m 644 $SRC/arialbd.ttf $PKG/usr/share/mplayer/font/arialbd.ttf
 
 	# configs
-	install -m 644 $SRC/mplayer.conf $PKG/usr/etc/mplayer/mplayer.conf
+	mkdir -p $PKG/etc/mplayer
+	install -m 644 $SRC/mplayer.conf $PKG/etc/mplayer/
 	sed -i s/'\#y\ menu\ hide'/'y\ menu\ hide'/ etc/input.conf
-	install -m 644 etc/input.conf $PKG/usr/etc/mplayer/input.conf
-	install -m 644 etc/codecs.conf $PKG/usr/etc/mplayer/codecs.conf
-	install -m 644 etc/menu.conf $PKG/usr/etc/mplayer/menu.conf
+	install -m 644 etc/input.conf $PKG/etc/mplayer
+	install -m 644 etc/codecs.conf $PKG/etc/mplayer
+	install -m 644 etc/menu.conf $PKG/etc/mplayer
 	
 	rmdir $PKG/usr/lib
 }
