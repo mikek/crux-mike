@@ -4,13 +4,12 @@
 #
 # Adopted from Fedora Core
 
-
 LOCKFILE=/var/lock/nginx.lock
 PIDFILE=/var/run/nginx.pid
 RETVAL=0
 MAXOPENFILES=16384
 
-nginx=/usr/bin/nginx
+NGINX=/usr/bin/nginx
 
 start()
 {
@@ -22,7 +21,7 @@ start()
 	# nginx can work with many files at one time
 	ulimit -n $MAXOPENFILES
 
-	/usr/bin/nginx &>/dev/null
+	$NGINX &>/dev/null
 	RETVAL=$?
 }
 
@@ -46,7 +45,7 @@ reload() {
 
 testconfig()
 {
-    nginx -t
+    $NGINX -t
     RETVAL=$?
 }
 
@@ -98,7 +97,7 @@ testconfig)
 	RETVAL=$?
 ;;
 *)
-	echo $"Usage: $prog {start|stop|reload|restart|rotate|testconfig}"
+	echo "Usage: $0 {start|stop|reload|restart|rotate|testconfig}"
 	RETVAL=1
 esac
 
