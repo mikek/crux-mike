@@ -1,4 +1,4 @@
-README for phpmyadmin 2.11.x
+README for phpmyadmin
 
 REQUIREMENTS
 	You'll need mod_php or php-fcgi port dependig on webserver 
