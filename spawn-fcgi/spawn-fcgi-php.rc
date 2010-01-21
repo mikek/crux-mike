@@ -65,7 +65,7 @@ case "$1" in
 start)
 	# clean the environment and set up a new one
 	env -i ${ENV} $EX
-	chmod a+w $FCGISOCKET 2>/dev/null
+	chmod 660 $FCGISOCKET 2>/dev/null
 ;;
 stop)
 	kill -TERM `cat $FCGIPID`

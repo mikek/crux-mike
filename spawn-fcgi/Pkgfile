@@ -1,10 +1,10 @@
-# Description: Spawns few php-cgi instances (a part of lighttpd)
+# Description: Spawns FastCGI applications
 # URL: http://www.lighttpd.net/
 # Maintainer: Mikhail Kolesnik, mike at openbunker dot org
 # Depends on: 
 
 name=spawn-fcgi
-version=1.6.2
+version=1.6.3
 release=1
 source=(http://www.lighttpd.net/download/$name-$version.tar.bz2 \
 		$name-php.rc \
