@@ -1,0 +1,16 @@
+# Description: Python bindings for PostgreSQL
+# URL: http://www.initd.org/
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Packager: Lucas Hazel, lucas at die dot net dot au
+# Depends on: python postgresql
+
+name=psycopg2
+version=2.0.13
+release=1
+source=(http://www.initd.org/pub/software/psycopg/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	python setup.py install --root=$PKG --prefix=/usr
+	find $PKG -name '*.egg-info' | xargs rm
+}

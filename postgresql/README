@@ -1,0 +1,49 @@
+README POSTGRESQL
+=================
+
+UPGRADING FROM A PREVIOUS VERSION
+---------------------------------
+If upgrading from a non-compatible version (ie 8.0.x >> 8.1.x)
+be sure to dump the databases before upgrading and restore them
+later.
+
+Example: (for your convenience, there could be better ways to
+          achieve this)
+
+# pg_dumpall -U postgres > pg.dump
+# /etc/rc.d/postgresql stop
+
+# mv /srv/db/pgsql /srv/db/pgsql-backup
+# mkdir /srv/db/pgsql
+# chown postgres /srv/db/pgsql
+
+# su - postgres
+# initdb -D /srv/db/pgsql
+# exit
+
+# /etc/rc.d/postgresql start
+# psql -U postgres -f pg.dump postgres
+
+Do not forget to update/copy old config files to /srv/db/pgsql 
+
+
+NEW INSTALL
+-----------
+Run 'post-install' script if it was not run yet
+
+Test the install:
+  /etc/rc.d/postgresql start
+  su - postgres
+  createdb test
+  psql test
+
+You may want to install logrotate to use the supplied 
+/etc/logrotate.d/postgresql.conf
+
+To use contrib addons run some optionall sql scripts at 
+/usr/share/postgresql/contrib. For example, to use pgadmin3 you 
+might want to do this:
+  su - postgres -c "psql postgres < /usr/share/postgresql/contrib/adminpack.sql"
+
+The complete installation instructions are located here:
+  http://www.postgresql.org/docs/current/interactive/installation.html

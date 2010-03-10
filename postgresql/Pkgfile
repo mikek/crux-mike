@@ -1,0 +1,39 @@
+# Description: A sophisticated Object-Relational DBMS
+# URL: http://www.postgresql.org
+# Maintainer: Mikhail Kolesnik, mike at openbunker dot org
+# Packager: Markus Heinz, su1690 at studserver.uni-dortmund dot de
+# Depends on: python
+
+name=postgresql
+version=8.4.2
+release=1
+source=(ftp://ftp9.de.postgresql.org/unix/databases/postgresql/source/v$version/$name-$version.tar.bz2 \
+		$name\
+		$name.conf)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr \
+				--disable-nls \
+				--mandir=/usr/man \
+				--enable-thread-safety \
+				--with-python \
+				--with-openssl
+	make
+	make DESTDIR=$PKG install
+	
+	cd contrib
+	for extension in pgbench adminpack sslinfo tsearch2 fuzzystrmatch pg_trgm
+	do
+		cd $extension && make && make DESTDIR=$PKG install && cd ..
+	done
+	cd ..
+	
+	rm -rf $PKG/usr/share/doc
+	mkdir -p $PKG/etc/{rc.d,logrotate.d}
+	mkdir -p $PKG/var/log/$name
+	touch $PKG/var/log/$name/$name.log
+	chown daemon $PKG/var/log/$name/$name.log
+	install -D -m 755 $SRC/$name $PKG/etc/rc.d/$name
+	install -D -m 644 $SRC/$name.conf $PKG/etc/logrotate.d/$name.conf
+}
