@@ -5,7 +5,7 @@
 # Depends on: php re2c
 
 name=eaccelerator
-version=0.9.5.3
+version=0.9.6
 release=1
 source=(http://bart.$name.net/source/${version}/$name-${version}.tar.bz2 \
 		$name.ini)
