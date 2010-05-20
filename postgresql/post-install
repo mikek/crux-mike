@@ -47,7 +47,7 @@ sed -i s/"daemon"/"$ADD_USER"/ /etc/rc.d/postgresql
 if [[ ! -d /srv/db/pgsql ]]; then
 	mkdir -p /srv/db/pgsql
 	chown $ADD_USER:$ADD_GROUP /srv/db/pgsql
-	su - $ADD_USER -c "initdb -D /srv/db/pgsql --encoding=UTF8 --locale=POSIX"
+	su - $ADD_USER -c "initdb -D /srv/db/pgsql --encoding=UTF8 --locale=en_US.UTF8"
 fi
 
 exit $ADD_STATUS
