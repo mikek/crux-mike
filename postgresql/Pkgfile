@@ -5,7 +5,7 @@
 # Depends on: python
 
 name=postgresql
-version=8.4.2
+version=8.4.4
 release=1
 source=(ftp://ftp9.de.postgresql.org/unix/databases/postgresql/source/v$version/$name-$version.tar.bz2 \
 		$name\
