@@ -4,7 +4,7 @@
 # Depends on: wxgtk postgresql
 
 name=pgadmin3
-version=1.10.1
+version=1.10.3
 release=1
 source=(ftp://ftp9.de.postgresql.org/unix/databases/postgresql/pgadmin3/release/v$version/src/$name-$version.tar.gz)
 
