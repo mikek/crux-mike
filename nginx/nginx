@@ -65,7 +65,9 @@ upgrade()
 }
 
 rotate() {
-	echo -n $"Sending USR1 signal to rotate logs "
+	# it's too verbose when we are called from cron/logrotate and
+	# causes useless E-mail warnings in some setups
+	#echo -n $"Sending USR1 signal to rotate logs "
 	kill -USR1 `cat $PIDFILE`
 	echo
 	RETVAL=$?
