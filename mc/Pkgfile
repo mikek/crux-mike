@@ -1,24 +1,25 @@
-# Description: GNU Midnight Commander (with multiple charsets support and recode patch)
-# URL:         http://www.ibiblio.org/mc/ 
-# Maintainer:  Mikhail Kolesnik, mike at openbunker dot org
-# Depends on:  glib
+# Description: GNU Midnight Commander
+# URL:         http://www.midnight-commander.org
+# Maintainer:  Juergen Daubert, juergen dot daubert at t-online dot de
+# Depends on:  ncurses glib
 
 name=mc
-version=4.6.1
-release=5
-source=(http://www.ibiblio.org/pub/Linux/utils/file/managers/$name/$name-$version.tar.gz \
-		mc-$version.recode.patch-20050731 \
-		mc-$version-bash32-1.patch)
+version=4.7.4
+release=1
+source=(http://www.midnight-commander.org/downloads/$name-$version.tar.lzma)
 
 build () {
-	cd $name-$version
-	patch -p1 -i $SRC/mc-4.6.1.recode.patch-20050731
-	patch -p1 -i $SRC/mc-$version-bash32-1.patch
-	./configure --prefix=/usr --disable-nls \
+    cd $name-$version
+
+    ./configure --prefix=/usr \
+                --mandir=/usr/man \
+                --libexecdir=/usr/lib \
+                --disable-nls \
+                --with-screen=ncurses \
 				--enable-charset
-	make
-	make DESTDIR=$PKG install
-	rm $PKG/usr/share/mc/mc.hint.*
-	rm $PKG/usr/share/mc/extfs/README
-	rm -r $PKG/usr/{sbin,man/man8}
+
+    make
+    make DESTDIR=$PKG install
+
+    rm $PKG/usr/{share/mc/mc.hint.*,lib/mc/*/README*}
 }
