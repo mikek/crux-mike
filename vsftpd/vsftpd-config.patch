@@ -1,22 +1,6 @@
-diff -Nru vsftpd-2.1.0-orig/builddefs.h vsftpd-2.1.0/builddefs.h
---- vsftpd-2.1.0-orig/builddefs.h	2009-03-30 17:56:12.463325945 +0300
-+++ vsftpd-2.1.0/builddefs.h	2009-03-30 17:56:36.459324249 +0300
-@@ -1,9 +1,9 @@
- #ifndef VSF_BUILDDEFS_H
- #define VSF_BUILDDEFS_H
- 
--#undef VSF_BUILD_TCPWRAPPERS
--#define VSF_BUILD_PAM
--#undef VSF_BUILD_SSL
-+#define VSF_BUILD_TCPWRAPPERS
-+#undef VSF_BUILD_PAM
-+#define VSF_BUILD_SSL
- 
- #endif /* VSF_BUILDDEFS_H */
- 
-diff -Nru vsftpd-2.1.0-orig/Makefile vsftpd-2.1.0/Makefile
---- vsftpd-2.1.0-orig/Makefile	2009-03-30 17:56:12.464328293 +0300
-+++ vsftpd-2.1.0/Makefile	2009-03-30 17:56:36.458324764 +0300
+diff -Nru vsftpd-2.3.2.orig/Makefile vsftpd-2.3.2/Makefile
+--- vsftpd-2.3.2.orig/Makefile	2010-08-28 15:38:07.032912301 +0200
++++ vsftpd-2.3.2/Makefile	2010-08-28 15:38:23.114141478 +0200
 @@ -3,7 +3,7 @@
  INSTALL	=	install
  IFLAGS  = -idirafter dummyinc
@@ -52,10 +36,26 @@ diff -Nru vsftpd-2.1.0-orig/Makefile vsftpd-2.1.0/Makefile
  
  clean:
  	rm -f *.o *.swp vsftpd
-diff -Nru vsftpd-2.1.0-orig/tunables.c vsftpd-2.1.0/tunables.c
---- vsftpd-2.1.0-orig/tunables.c	2009-03-30 17:56:12.463325945 +0300
-+++ vsftpd-2.1.0/tunables.c	2009-03-30 17:56:36.460324782 +0300
-@@ -242,7 +242,7 @@
+diff -Nru vsftpd-2.3.2.orig/builddefs.h vsftpd-2.3.2/builddefs.h
+--- vsftpd-2.3.2.orig/builddefs.h	2010-08-28 15:38:07.032912301 +0200
++++ vsftpd-2.3.2/builddefs.h	2010-08-28 15:38:23.114141478 +0200
+@@ -1,9 +1,9 @@
+ #ifndef VSF_BUILDDEFS_H
+ #define VSF_BUILDDEFS_H
+ 
+-#undef VSF_BUILD_TCPWRAPPERS
+-#define VSF_BUILD_PAM
+-#undef VSF_BUILD_SSL
++#define VSF_BUILD_TCPWRAPPERS
++#undef VSF_BUILD_PAM
++#define VSF_BUILD_SSL
+ 
+ #endif /* VSF_BUILDDEFS_H */
+ 
+diff -Nru vsftpd-2.3.2.orig/tunables.c vsftpd-2.3.2/tunables.c
+--- vsftpd-2.3.2.orig/tunables.c	2010-08-28 15:38:07.082917253 +0200
++++ vsftpd-2.3.2/tunables.c	2010-08-28 15:38:23.114141478 +0200
+@@ -250,7 +250,7 @@
    /* -rw------- */
    tunable_chown_upload_mode = 0600;
  
@@ -64,7 +64,7 @@ diff -Nru vsftpd-2.1.0-orig/tunables.c vsftpd-2.1.0/tunables.c
    install_str_setting("ftp", &tunable_ftp_username);
    install_str_setting("root", &tunable_chown_username);
    install_str_setting("/var/log/xferlog", &tunable_xferlog_file);
-@@ -269,11 +269,11 @@
+@@ -277,11 +277,11 @@
    install_str_setting(0, &tunable_user_sub_token);
    install_str_setting("/etc/vsftpd.email_passwords",
                        &tunable_email_password_file);
@@ -78,17 +78,13 @@ diff -Nru vsftpd-2.1.0-orig/tunables.c vsftpd-2.1.0/tunables.c
    install_str_setting(0, &tunable_dsa_private_key_file);
    install_str_setting(0, &tunable_ca_certs_file);
  }
-diff -Nru vsftpd-2.1.0-orig/vsftpd.conf vsftpd-2.1.0/vsftpd.conf
---- vsftpd-2.1.0-orig/vsftpd.conf	2009-03-30 17:56:12.463325945 +0300
-+++ vsftpd-2.1.0/vsftpd.conf	2009-03-30 17:57:21.458329157 +0300
-@@ -8,11 +8,28 @@
+diff -Nru vsftpd-2.3.2.orig/vsftpd.conf vsftpd-2.3.2/vsftpd.conf
+--- vsftpd-2.3.2.orig/vsftpd.conf	2010-08-28 15:38:07.082917253 +0200
++++ vsftpd-2.3.2/vsftpd.conf	2010-08-28 15:38:23.114141478 +0200
+@@ -8,11 +8,21 @@
  # Please read the vsftpd.conf.5 manual page to get a full idea of vsftpd's
  # capabilities.
  #
-+#
-+# Run standalone
-+listen=YES
-+background=YES
 +#
 +# Use tcp_wrappers library
 +tcp_wrappers=YES
@@ -100,9 +96,6 @@ diff -Nru vsftpd-2.1.0-orig/vsftpd.conf vsftpd-2.1.0/vsftpd.conf
  # Allow anonymous FTP? (Beware - allowed by default if you comment this out).
  anonymous_enable=YES
  #
-+# A directory which vsftpd will try to change into after an anonymous login
-+anon_root=/srv/ftp/vsftpd
-+#
  # Uncomment this to allow local users to log in.
  #local_enable=YES
 +#force_local_logins_ssl=YES
@@ -110,10 +103,18 @@ diff -Nru vsftpd-2.1.0-orig/vsftpd.conf vsftpd-2.1.0/vsftpd.conf
  #
  # Uncomment this to enable any form of FTP write command.
  #write_enable=YES
-diff -Nru vsftpd-2.1.0-orig/vsftpd.conf.5 vsftpd-2.1.0/vsftpd.conf.5
---- vsftpd-2.1.0-orig/vsftpd.conf.5	2009-03-30 17:56:12.462325063 +0300
-+++ vsftpd-2.1.0/vsftpd.conf.5	2009-03-30 17:56:36.465324373 +0300
-@@ -950,21 +950,21 @@
+@@ -107,6 +117,7 @@
+ # listens on IPv4 sockets. This directive cannot be used in conjunction
+ # with the listen_ipv6 directive.
+ listen=YES
++background=YES
+ #
+ # This directive enables listening on IPv6 sockets. To listen on IPv4 and IPv6
+ # sockets, you must run two copies of vsftpd with two configuration files.
+diff -Nru vsftpd-2.3.2.orig/vsftpd.conf.5 vsftpd-2.3.2/vsftpd.conf.5
+--- vsftpd-2.3.2.orig/vsftpd.conf.5	2010-08-28 15:38:07.082917253 +0200
++++ vsftpd-2.3.2/vsftpd.conf.5	2010-08-28 15:38:23.114141478 +0200
+@@ -955,21 +955,21 @@
  This option specifies the location of the RSA certificate to use for SSL
  encrypted connections.
  
