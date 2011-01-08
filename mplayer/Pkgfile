@@ -1,29 +1,26 @@
 # Description: Media player (with cyrillic osd font)
 # URL: http://www.mplayerhq.hu/
 # Maintainer: Mikhail Kolesnik, mike at openbunker dot org
-# Depends on: freetype xorg-libxinerama xorg-libxv xorg-libxxf86dga xorg-libxxf86vm
-
-# Nice to have: zlib, lzo, libsdl, libjpeg, libpng, lame, toolame, libogg,
-# libvorbis, cdparanoia, libmatroska, libdts, libtheora, libxvid, libfame,
-# aalib, win32-essential-codecs, libdv, faac, x264, openal, directfb
+# Depends on: cabextract freetype xorg-libxinerama xorg-libxv xorg-libxxf86dga xorg-libxxf86vm yasm
+# Nice to have: lzo libsdl jack libjpeg libpng lame toolame libogg libvorbis cdparanoia libmatroska libdts libtheora libxvid libfame win32-essential-codecs libdv faac x264 openal directfb libdvdnav libdca
 
 name=mplayer
-version=export-2009-12-26
+version=export-2011-01-07
 release=1
-source=(http://crux.nu/~lucas/files/$name-$version.tar.bz2 \
-		http://www.cabextract.org.uk/cabextract-1.2.tar.gz \
+#http://www.mplayerhq.hu/MPlayer/releases/mplayer-export-snapshot.tar.bz2
+source=(http://openbunker.org/crux/files/$name-$version.tar.bz2 \
 		http://dl.sourceforge.net/sourceforge/corefonts/arial32.exe \
 		mplayer.conf)
 
 build() {
-	(cd cabextract-1.2 && ./configure && make)
-	cabextract-1.2/cabextract --lowercase arial32.exe
+	cabextract --lowercase arial32.exe
 	cd $name-$version
 
-	export CFLAGS="$(echo $CFLAGS | sed -e 's/-O[s0-3]/-O3/') -ffast-math -fomit-frame-pointer"
+	#export CFLAGS="$(echo $CFLAGS | sed -e 's/-O[s0-3]/-O3/') -ffast-math -fomit-frame-pointer"
+	unset CFLAGS
 	./configure --prefix=/usr \
 				--mandir=/usr/man \
-				--confdir=/etc \
+				--confdir=/etc/$name \
 				--enable-largefiles \
 				--codecsdir=/usr/share/codecs \
 				--with-freetype-config=/usr/bin/freetype-config \
@@ -38,12 +35,12 @@ build() {
 	/usr/bin/install -D -m 644 $SRC/arialbd.ttf $PKG/usr/share/mplayer/font/arialbd.ttf
 
 	# configs
-	mkdir -p $PKG/etc/mplayer
-	install -m 644 $SRC/mplayer.conf $PKG/etc/mplayer/
-	sed -i s/'\#y\ menu\ hide'/'y\ menu\ hide'/ etc/input.conf
-	install -m 644 etc/input.conf $PKG/etc/mplayer
-	install -m 644 etc/codecs.conf $PKG/etc/mplayer
-	install -m 644 etc/menu.conf $PKG/etc/mplayer
+	mkdir -p $PKG/etc/$name
+	install -m 644 $SRC/mplayer.conf $PKG/etc/$name/
+	#sed -i s/'\#y\ menu\ hide'/'y\ menu\ hide'/ etc/input.conf
+	install -m 644 etc/input.conf $PKG/etc/$name
+	install -m 644 etc/codecs.conf $PKG/etc/$name
+	install -m 644 etc/menu.conf $PKG/etc/$name
 	
 	rmdir $PKG/usr/lib
 }
