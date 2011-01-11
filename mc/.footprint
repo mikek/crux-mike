@@ -3,21 +3,17 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/mc
 lrwxrwxrwx	root/root	usr/bin/mcdiff -> mc
 lrwxrwxrwx	root/root	usr/bin/mcedit -> mc
--rwxr-xr-x	root/root	usr/bin/mcmfmt
 lrwxrwxrwx	root/root	usr/bin/mcview -> mc
 drwxr-xr-x	root/root	usr/etc/
 drwxr-xr-x	root/root	usr/etc/mc/
--rw-r--r--	root/root	usr/etc/mc/Syntax
 -rw-r--r--	root/root	usr/etc/mc/cedit.menu
 -rw-r--r--	root/root	usr/etc/mc/edit.indent.rc
 -rw-r--r--	root/root	usr/etc/mc/edit.spell.rc
 -rw-r--r--	root/root	usr/etc/mc/filehighlight.ini
--rw-r--r--	root/root	usr/etc/mc/mc.charsets
 -rw-r--r--	root/root	usr/etc/mc/mc.ext
 -rw-r--r--	root/root	usr/etc/mc/mc.keymap
 -rw-r--r--	root/root	usr/etc/mc/mc.keymap.default
 -rw-r--r--	root/root	usr/etc/mc/mc.keymap.emacs
--rw-r--r--	root/root	usr/etc/mc/mc.lib
 -rw-r--r--	root/root	usr/etc/mc/mc.menu
 -rw-r--r--	root/root	usr/etc/mc/mc.menu.sr
 -rw-r--r--	root/root	usr/etc/mc/sfs.ini
@@ -81,8 +77,12 @@ drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/mcview.1.gz
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/mc/
--rw-r--r--	root/root	usr/share/mc/mc.hint
--rw-r--r--	root/root	usr/share/mc/mc.hlp
+drwxr-xr-x	root/root	usr/share/mc/help/
+-rw-r--r--	root/root	usr/share/mc/help/mc.hlp
+drwxr-xr-x	root/root	usr/share/mc/hints/
+-rw-r--r--	root/root	usr/share/mc/hints/mc.hint
+-rw-r--r--	root/root	usr/share/mc/mc.charsets
+-rw-r--r--	root/root	usr/share/mc/mc.lib
 drwxr-xr-x	root/root	usr/share/mc/skins/
 -rw-r--r--	root/root	usr/share/mc/skins/darkfar.ini
 -rw-r--r--	root/root	usr/share/mc/skins/default.ini
@@ -92,6 +92,7 @@ drwxr-xr-x	root/root	usr/share/mc/skins/
 -rw-r--r--	root/root	usr/share/mc/skins/nicedark.ini
 drwxr-xr-x	root/root	usr/share/mc/syntax/
 -rw-r--r--	root/root	usr/share/mc/syntax/PKGBUILD.syntax
+-rw-r--r--	root/root	usr/share/mc/syntax/Syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/ada95.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/aspx.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/assembler.syntax
@@ -102,6 +103,7 @@ drwxr-xr-x	root/root	usr/share/mc/syntax/
 -rw-r--r--	root/root	usr/share/mc/syntax/cs.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/css.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/cxx.syntax
+-rw-r--r--	root/root	usr/share/mc/syntax/cython.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/d.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/debian-changelog.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/debian-control.syntax
