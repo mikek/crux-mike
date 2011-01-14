@@ -6,7 +6,7 @@
 # juergen dot daubert at t-online dot de's ports were templates
 
 name=apache
-version=2.2.15
+version=2.2.17
 release=1
 source=(http://www.apache.org/dist/httpd/httpd-$version.tar.bz2 \
         $name-ssl_cert.patch crux-fhs.layout apache)
