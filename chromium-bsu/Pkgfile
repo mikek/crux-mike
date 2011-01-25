@@ -4,12 +4,12 @@
 # Depends on: sdl_mixer ftgl freealut glpng
 
 name=chromium-bsu
-version=0.9.13.3
+version=0.9.14.1
 release=1
-source=(http://dl.sourceforge.net/$name/chromium-$version.tar.gz)
+source=(http://download.sourceforge.net/$name/files/$name-$version.tar.gz)
 
 build() {
-	cd chromium-$version
+	cd $name-$version
 	./configure --prefix=/usr --disable-nls \
 				--mandir=/usr/man
 	make
