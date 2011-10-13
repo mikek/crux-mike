@@ -4,7 +4,7 @@
 # Depends on: sdl_mixer ftgl freealut glpng
 
 name=chromium-bsu
-version=0.9.14.1
+version=0.9.15
 release=1
 source=(http://download.sourceforge.net/$name/files/$name-$version.tar.gz)
 
