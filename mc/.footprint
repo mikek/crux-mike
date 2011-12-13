@@ -84,11 +84,13 @@ drwxr-xr-x	root/root	usr/share/mc/hints/
 -rw-r--r--	root/root	usr/share/mc/mc.charsets
 -rw-r--r--	root/root	usr/share/mc/mc.lib
 drwxr-xr-x	root/root	usr/share/mc/skins/
+-rw-r--r--	root/root	usr/share/mc/skins/dark.ini
 -rw-r--r--	root/root	usr/share/mc/skins/darkfar.ini
 -rw-r--r--	root/root	usr/share/mc/skins/default.ini
 -rw-r--r--	root/root	usr/share/mc/skins/double-lines.ini
 -rw-r--r--	root/root	usr/share/mc/skins/featured.ini
 -rw-r--r--	root/root	usr/share/mc/skins/gotar.ini
+-rw-r--r--	root/root	usr/share/mc/skins/mc46.ini
 -rw-r--r--	root/root	usr/share/mc/skins/nicedark.ini
 drwxr-xr-x	root/root	usr/share/mc/syntax/
 -rw-r--r--	root/root	usr/share/mc/syntax/PKGBUILD.syntax
