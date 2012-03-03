@@ -1,46 +1,15 @@
 #!/bin/sh
-#
-# - add $ADD_USER user, $ADD_GROUP group
-# - change files permissions
-# - reflect changes in config
-#
-# We'll assume 'passwd', 'group' and 'shadow' files are in sync.
 
-ADD_GID=65
-ADD_UID=65
 ADD_USER=postgres
 ADD_USER_HOME=/var/empty
 ADD_USER_SHELL=/bin/bash
 ADD_GROUP=postgres
 
-ADD_STATUS=0
-if [ -z `getent group | gawk -F: '{ print $1 }' | grep ^$ADD_GROUP$` ]; then
-	while [ `getent group | gawk -F: '{ print $3 }' | grep ^$ADD_GID$` ]
-	do
-		let ADD_GID+=1
-	done
-	/usr/sbin/groupadd -g $ADD_GID $ADD_GROUP || exit 1
-	echo "$0: Created $ADD_GROUP group, GID=$ADD_GID"
-	else
-		echo "$0: $ADD_GROUP group already exists, trying to create user..."
-fi
+set -x -u -e
 
-if [ -z `getent passwd | gawk -F: '{ print $1 }' | grep ^$ADD_USER$` ]; then
-	while [ `getent passwd | gawk -F: '{ print $3 }' | grep ^$ADD_UID$` ]
-	do
-		let ADD_UID+=1
-	done
-	/usr/sbin/useradd -d $ADD_USER_HOME -s $ADD_USER_SHELL -u $ADD_UID -g $ADD_GROUP $ADD_USER || exit 1
-	echo "$0: Created $ADD_USER user, UID=$ADD_UID"
-	else
-		echo "$0: $ADD_USER user already exists"
-		if  [[ `getent passwd | grep ^$ADD_USER: | gawk -F: '{ print $4 }'` != `getent group | grep ^$ADD_GROUP: | gawk -F: '{ print $3 }'` ]]; then
-			echo "$0: existing $ADD_USER user is not in $ADD_GROUP group (fix it by hand)."
-			ADD_STAUS=2
-		fi
-fi
+/usr/sbin/groupadd --system --force $ADD_GROUP
+/usr/sbin/useradd --system --home $ADD_USER_HOME --shell $ADD_USER_SHELL --gid $ADD_GROUP $ADD_USER
 
-# additional
 chown -R $ADD_USER:$ADD_GROUP /var/log/postgresql/postgresql.log
 sed -i s/"daemon"/"$ADD_USER"/ /etc/rc.d/postgresql
 
@@ -49,5 +18,3 @@ if [[ ! -d /srv/db/pgsql ]]; then
 	chown $ADD_USER:$ADD_GROUP /srv/db/pgsql
 	su - $ADD_USER -c "initdb -D /srv/db/pgsql --encoding=UTF8 --locale=en_US.UTF8"
 fi
-
-exit $ADD_STATUS
