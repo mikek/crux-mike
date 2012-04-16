@@ -6,7 +6,7 @@
 # juergen dot daubert at t-online dot de's ports were templates
 
 name=apache
-version=2.2.21
+version=2.2.22
 release=1
 source=(http://www.apache.org/dist/httpd/httpd-$version.tar.bz2 \
         $name-ssl_cert.patch crux-fhs.layout apache)
@@ -27,7 +27,7 @@ build(){
 				--with-apr-util=/usr \
 				--with-pcre=/usr
 	make
-	make DESTDIR=$PKG install
+	make -j1 DESTDIR=$PKG install
 
 	mkdir -p $PKG/etc/ssl/{keys,certs}
 	touch $PKG/etc/ssl/keys/apache.key
