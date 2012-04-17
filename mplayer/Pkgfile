@@ -5,23 +5,23 @@
 # Nice to have: lzo libsdl jack libjpeg libpng lame toolame libogg libvorbis cdparanoia libmatroska libdts libtheora libxvid libfame win32-essential-codecs libdv faac x264 openal directfb libdvdnav libdca
 
 name=mplayer
-version=export-2011-01-07
+version=export-2011-11-30
 release=1
-#http://www.mplayerhq.hu/MPlayer/releases/mplayer-export-snapshot.tar.bz2
-source=(http://openbunker.org/crux/files/$name-$version.tar.bz2 \
-		http://dl.sourceforge.net/sourceforge/corefonts/arial32.exe \
+source=(http://crux.nu/~tek/$name-$version.tar.bz2 \
+		http://downloads.sourceforge.net/corefonts/the%20fonts/final/arial32.exe \
 		mplayer.conf)
 
 build() {
 	cabextract --lowercase arial32.exe
 	cd $name-$version
 
-	#export CFLAGS="$(echo $CFLAGS | sed -e 's/-O[s0-3]/-O3/') -ffast-math -fomit-frame-pointer"
-	unset CFLAGS
+	# Keep in line with mplayer CFLAGS, but allow people to set their own march/mtune values.
+	export CFLAGS="$(echo $CFLAGS | sed -e 's/-O[s0-3]/-O3/') -ffast-math -fomit-frame-pointer -fno-strict-aliasing"
+	
+	rm -f ffmpeg/mp_auto_pull
 	./configure --prefix=/usr \
 				--mandir=/usr/man \
 				--confdir=/etc/$name \
-				--enable-largefiles \
 				--codecsdir=/usr/share/codecs \
 				--with-freetype-config=/usr/bin/freetype-config \
 				--enable-menu
