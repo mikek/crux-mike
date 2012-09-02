@@ -1,19 +1,19 @@
-# Description: Media player (with cyrillic osd font)
+# Description: Media player (with Arial font, osd menu and most optional codecs enabled)
 # URL: http://www.mplayerhq.hu/
 # Maintainer: Mikhail Kolesnik, mike at openbunker dot org
 # Depends on: cabextract freetype xorg-libxinerama xorg-libxv xorg-libxxf86dga xorg-libxxf86vm yasm
 # Nice to have: lzo libsdl jack libjpeg libpng lame toolame libogg libvorbis cdparanoia libmatroska libdts libtheora libxvid libfame win32-essential-codecs libdv faac x264 openal directfb libdvdnav libdca
 
 name=mplayer
-version=export-2011-11-30
+version=1.1
 release=1
-source=(http://crux.nu/~tek/$name-$version.tar.bz2 \
+source=(ftp://ftp1.mplayerhq.hu/MPlayer/releases/MPlayer-$version.tar.xz \
 		http://downloads.sourceforge.net/corefonts/the%20fonts/final/arial32.exe \
 		mplayer.conf)
 
 build() {
 	cabextract --lowercase arial32.exe
-	cd $name-$version
+	cd MPlayer-$version
 
 	# Keep in line with mplayer CFLAGS, but allow people to set their own march/mtune values.
 	export CFLAGS="$(echo $CFLAGS | sed -e 's/-O[s0-3]/-O3/') -ffast-math -fomit-frame-pointer -fno-strict-aliasing"
