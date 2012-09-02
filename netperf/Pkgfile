@@ -5,7 +5,7 @@
 # Depends on: 
 
 name=netperf
-version=2.4.5
+version=2.6.0
 release=1
 source=(ftp://ftp.netperf.org/$name/$name-$version.tar.gz)
 
@@ -15,5 +15,5 @@ build() {
 				--mandir='${prefix}/man'
 	make
 	make prefix=$PKG/usr install
-	rm -rf $PKG/usr/share	
+	rm -rf $PKG/usr/share
 }
