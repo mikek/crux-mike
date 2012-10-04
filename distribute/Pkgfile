@@ -1,5 +1,5 @@
 # Description: A set of enhancements to virtualenv
-# URL: https://github.com/dreamhost/stevedore
+# URL: http://pypi.python.org/pypi/distribute/
 # Maintainer: Mikhail Kolesnik, mike at openbunker dot org
 # Depends on: python
 
