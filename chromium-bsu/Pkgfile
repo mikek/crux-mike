@@ -6,7 +6,7 @@
 name=chromium-bsu
 version=0.9.15
 release=1
-source=(http://download.sourceforge.net/$name/files/$name-$version.tar.gz)
+source=(http://downloads.sourceforge.net/project/chromium-bsu/Chromium%20B.S.U.%20source%20code/$version/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
