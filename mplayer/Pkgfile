@@ -5,15 +5,15 @@
 # Nice to have: lzo libsdl jack libjpeg libpng lame toolame libogg libvorbis cdparanoia libmatroska libdts libtheora libxvid libfame win32-essential-codecs libdv faac x264 openal directfb libdvdnav libdca
 
 name=mplayer
-version=1.1
+version=2013-01-14
 release=1
-source=(ftp://ftp1.mplayerhq.hu/MPlayer/releases/MPlayer-$version.tar.xz \
+source=(http://crux.nu/~tek/mplayer-$version.tar.bz2
 		http://downloads.sourceforge.net/corefonts/the%20fonts/final/arial32.exe \
 		mplayer.conf)
 
 build() {
 	cabextract --lowercase arial32.exe
-	cd MPlayer-$version
+	cd mplayer-export-$version
 
 	# Keep in line with mplayer CFLAGS, but allow people to set their own march/mtune values.
 	export CFLAGS="$(echo $CFLAGS | sed -e 's/-O[s0-3]/-O3/') -ffast-math -fomit-frame-pointer -fno-strict-aliasing"
