@@ -1,5 +1,5 @@
 # Description: Configure network interfaces for bonding
-# URL: http://www.linux-foundation.org/en/Net:Bonding
+# URL: http://www.linuxfoundation.org/collaborate/workgroups/networking/bonding
 # Maintainer: Mikhail Kolesnik, mike at openbunker dot org
 # Depends on: 
 
@@ -12,6 +12,6 @@ build() {
 	mkdir $name-$version
 	cd $name-$version
 	cp /lib/modules/$(uname -r)/build/Documentation/networking/$name.c .
-	gcc -Wall -O -I/lib/modules/$(uname -r)/build/include $name.c -o ifenslave
+	gcc -Wall -Wstrict-prototypes -O -I/lib/modules/$(uname -r)/build/include $name.c -o ifenslave
 	install -D -m 744 $name $PKG/sbin/$name
 }
