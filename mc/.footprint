@@ -128,6 +128,7 @@ drwxr-xr-x	root/root	usr/share/mc/syntax/
 -rw-r--r--	root/root	usr/share/mc/syntax/c.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/cabal.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/changelog.syntax
+-rw-r--r--	root/root	usr/share/mc/syntax/cmake.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/cs.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/css.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/cxx.syntax
@@ -138,6 +139,7 @@ drwxr-xr-x	root/root	usr/share/mc/syntax/
 -rw-r--r--	root/root	usr/share/mc/syntax/debian-description.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/debian-sources-list.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/diff.syntax
+-rw-r--r--	root/root	usr/share/mc/syntax/dlink.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/dos.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/ebuild.syntax
 -rw-r--r--	root/root	usr/share/mc/syntax/eiffel.syntax
