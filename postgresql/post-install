@@ -5,7 +5,7 @@ ADD_USER_HOME=/var/empty
 ADD_USER_SHELL=/bin/bash
 ADD_GROUP=postgres
 
-set -x -u -e
+set -x -u
 
 /usr/sbin/groupadd --system --force $ADD_GROUP
 /usr/sbin/useradd --system --home $ADD_USER_HOME --shell $ADD_USER_SHELL --gid $ADD_GROUP $ADD_USER
