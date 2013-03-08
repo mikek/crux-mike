@@ -1,0 +1,8 @@
+#
+# /etc/ports/mike.httpup (mike at openbunker dot org)
+#
+
+ROOT_DIR=/usr/ports/mike
+URL=http://openbunker.org/crux/ports/mike
+
+# End of file
