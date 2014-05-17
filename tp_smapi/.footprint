@@ -1,0 +1,9 @@
+drwxr-xr-x	root/root	lib/
+drwxr-xr-x	root/root	lib/modules/
+drwxr-xr-x	root/root	lib/modules/<kernel-version>/
+drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/
+drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/drivers/
+drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/drivers/platform/
+drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/drivers/platform/x86/
+-rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/platform/x86/thinkpad_ec.ko
+-rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/platform/x86/tp_smapi.ko
